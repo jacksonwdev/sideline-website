@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 150" role="img" aria-labelledby="title">
+  <title id="title">Sideline</title>
+  <defs>
+    <filter id="softGlow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#softGlow)">
+    <path fill="#b9ff22" d="M51 34c14-18 33-27 57-27h78l-15 35h-65c-9 0-17 3-23 10-5 5-8 11-8 19 0 6 2 11 6 15 5 4 10 6 17 6h57c20 0 34 6 43 18 8 11 9 25 3 41l-1 2c-7 20-20 35-39 45-11 5-23 8-36 8H14l17-36h90c9 0 16-2 22-7 7-5 11-11 13-19 1-6 0-11-4-15-4-5-10-7-18-7H75c-19 0-33-6-42-18-8-11-9-25-4-42 4-11 11-21 22-28Z"/>
+    <path fill="#020305" d="M85 61h81l-14 31H93c-8 0-14-2-18-6-4-5-5-10-3-16 2-4 6-7 13-9Zm-48 76h111c6 0 10 2 13 6 2 4 2 8-1 12-4 9-12 14-24 14H21l16-32Z"/>
+    <path fill="#b9ff22" d="M92 72h119l-14 29H78l14-29Zm-72 75h137l-17 36H2l18-36Z"/>
+  </g>
+  <g fill="#ffffff" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="72" font-weight="900" letter-spacing="7">
+    <text x="239" y="102">SIDELINE</text>
+  </g>
+</svg>
