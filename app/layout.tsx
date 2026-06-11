@@ -14,9 +14,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sideline | Sports Communities Compete",
-  description:
-    "Sideline is a social sports picks platform for communities, creators, predictions, leaderboards, and premium fan rooms.",
+  metadataBase: new URL("https://sidelinesocials.com"),
+  title: "Sideline",
+  description: "Sports communities, creators, and competition in one place.",
+  applicationName: "Sideline",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Sideline",
+    description: "Sports communities, creators, and competition in one place.",
+    url: "/",
+    siteName: "Sideline",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sideline — sports communities, creators, and competition in one place.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sideline",
+    description: "Sports communities, creators, and competition in one place.",
+    images: ["/twitter-image.png"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
