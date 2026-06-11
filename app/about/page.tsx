@@ -69,12 +69,12 @@ const values = [
 ];
 
 const ecosystem = [
-  { label: "Communities", Icon: Users, position: "left-1/2 top-0 -translate-x-1/2" },
-  { label: "Predictions", Icon: TrendingUp, position: "right-[7%] top-[20%]" },
-  { label: "Competition", Icon: Trophy, position: "right-[8%] bottom-[8%]" },
-  { label: "Events", Icon: CalendarDays, position: "left-1/2 bottom-[8%] -translate-x-1/2" },
-  { label: "Discussions", Icon: MessageCircle, position: "left-[7%] bottom-[8%]" },
-  { label: "Creators", Icon: Mic2, position: "left-[8%] top-[20%]" },
+  { label: "Communities", Icon: Users, x: 50, y: 12 },
+  { label: "Predictions", Icon: TrendingUp, x: 84.17, y: 28 },
+  { label: "Competition", Icon: Trophy, x: 85, y: 74.17 },
+  { label: "Events", Icon: CalendarDays, x: 50, y: 88.33 },
+  { label: "Discussions", Icon: MessageCircle, x: 15.33, y: 73.33 },
+  { label: "Creators", Icon: Mic2, x: 16, y: 27.67 },
 ];
 
 function LogoSymbol({ className = "" }: { className?: string }) {
@@ -114,7 +114,7 @@ function HeroNetwork() {
           <line x1="300" y1="300" x2="300" y2="72" />
           <line x1="300" y1="300" x2="505" y2="168" />
           <line x1="300" y1="300" x2="510" y2="445" />
-          <line x1="300" y1="300" x2="300" y2="445" />
+          <line x1="300" y1="300" x2="300" y2="530" />
           <line x1="300" y1="300" x2="92" y2="440" />
           <line x1="300" y1="300" x2="96" y2="166" />
         </g>
@@ -122,7 +122,7 @@ function HeroNetwork() {
           <circle cx="300" cy="188" r="4" />
           <circle cx="402" cy="234" r="4" />
           <circle cx="402" cy="370" r="4" />
-          <circle cx="300" cy="370" r="4" />
+          <circle cx="300" cy="414" r="4" />
           <circle cx="198" cy="370" r="4" />
           <circle cx="198" cy="234" r="4" />
         </g>
@@ -132,8 +132,16 @@ function HeroNetwork() {
         <LogoSymbol className="h-10 w-12" />
       </div>
 
-      {ecosystem.map(({ label, Icon, position }) => (
-        <div className={`absolute ${position} text-center`} key={label}>
+      {ecosystem.map(({ label, Icon, x, y }) => (
+        <div
+          className="absolute text-center"
+          key={label}
+          style={{
+            left: `${x}%`,
+            top: `${y}%`,
+            transform: "translate(-50%, -28px)",
+          }}
+        >
           <span className="mx-auto grid size-14 place-items-center rounded-full border border-[#b9ff22]/45 bg-[#101607] text-[#b9ff22] shadow-[0_0_24px_rgba(185,255,34,.12)]">
             <Icon className="size-6" />
           </span>
