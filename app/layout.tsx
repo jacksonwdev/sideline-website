@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "https://sidelinesocials.com/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Sideline — sports communities, creators, and competition in one place.",
+        alt: "Sideline - More than sports. It's your Sideline.",
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sideline",
     description: "Sports communities, creators, and competition in one place.",
-    images: ["/twitter-image.png"],
+    images: ["https://sidelinesocials.com/twitter-image.png"],
   },
   icons: {
     icon: [
