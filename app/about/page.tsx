@@ -69,12 +69,12 @@ const values = [
 ];
 
 const ecosystem = [
-  { label: "Communities", Icon: Users, x: 50, y: 12 },
-  { label: "Predictions", Icon: TrendingUp, x: 84.17, y: 28 },
-  { label: "Competition", Icon: Trophy, x: 85, y: 74.17 },
-  { label: "Events", Icon: CalendarDays, x: 50, y: 88.33 },
-  { label: "Discussions", Icon: MessageCircle, x: 15.33, y: 73.33 },
-  { label: "Creators", Icon: Mic2, x: 16, y: 27.67 },
+  { label: "Communities", Icon: Users, x: 50, y: 10 },
+  { label: "Predictions", Icon: TrendingUp, x: 84.64, y: 30 },
+  { label: "Competition", Icon: Trophy, x: 84.64, y: 70 },
+  { label: "Events", Icon: CalendarDays, x: 50, y: 90 },
+  { label: "Discussions", Icon: MessageCircle, x: 15.36, y: 70 },
+  { label: "Creators", Icon: Mic2, x: 15.36, y: 30 },
 ];
 
 function LogoSymbol({ className = "" }: { className?: string }) {
@@ -106,25 +106,25 @@ function HeroNetwork() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[600px]">
       <div className="absolute inset-[10%] rounded-full border border-[#b9ff22]/10" />
-      <div className="absolute inset-[24%] rounded-full border border-[#b9ff22]/15" />
+      <div className="absolute inset-[30%] rounded-full border border-[#b9ff22]/20" />
       <div className="absolute left-1/2 top-1/2 size-[42%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b9ff22]/8 blur-3xl" />
 
       <svg aria-hidden="true" className="absolute inset-0 h-full w-full" viewBox="0 0 600 600">
         <g stroke="#b9ff22" strokeOpacity=".45" strokeWidth="1.5">
-          <line x1="300" y1="300" x2="300" y2="72" />
-          <line x1="300" y1="300" x2="505" y2="168" />
-          <line x1="300" y1="300" x2="510" y2="445" />
-          <line x1="300" y1="300" x2="300" y2="530" />
-          <line x1="300" y1="300" x2="92" y2="440" />
-          <line x1="300" y1="300" x2="96" y2="166" />
+          <line x1="300" y1="300" x2="300" y2="60" />
+          <line x1="300" y1="300" x2="508" y2="180" />
+          <line x1="300" y1="300" x2="508" y2="420" />
+          <line x1="300" y1="300" x2="300" y2="540" />
+          <line x1="300" y1="300" x2="92" y2="420" />
+          <line x1="300" y1="300" x2="92" y2="180" />
         </g>
         <g fill="#b9ff22">
-          <circle cx="300" cy="188" r="4" />
-          <circle cx="402" cy="234" r="4" />
-          <circle cx="402" cy="370" r="4" />
-          <circle cx="300" cy="414" r="4" />
-          <circle cx="198" cy="370" r="4" />
-          <circle cx="198" cy="234" r="4" />
+          <circle cx="300" cy="180" r="4" />
+          <circle cx="404" cy="240" r="4" />
+          <circle cx="404" cy="360" r="4" />
+          <circle cx="300" cy="420" r="4" />
+          <circle cx="196" cy="360" r="4" />
+          <circle cx="196" cy="240" r="4" />
         </g>
       </svg>
 
@@ -365,7 +365,6 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative min-h-[430px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(185,255,34,.1),transparent_55%)] p-5">
-            <div className="absolute left-1/2 top-1/2 h-[70%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-[#b9ff22]/10" />
             <HeroNetwork />
           </div>
         </section>
