@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
+import { StadiumCta } from "../components/StadiumCta";
 
 export const metadata: Metadata = {
   title: "Communities | Sideline",
@@ -458,9 +459,9 @@ export default function CommunitiesPage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 min-h-[500px] w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-12">
+        <section className="relative left-1/2 min-h-0 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-12 lg:min-h-[500px]">
           <div
-            className="pointer-events-none absolute bottom-0 left-[12vw] top-0 w-[58vw] max-w-[1120px]"
+            className="pointer-events-none absolute bottom-0 left-[12vw] top-0 hidden w-[58vw] max-w-[1120px] lg:block"
             style={{
               WebkitMaskImage:
                 "linear-gradient(to right, transparent 0%, black 12%, black 82%, transparent 100%)",
@@ -488,7 +489,7 @@ export default function CommunitiesPage() {
           </div>
           <div className="pointer-events-none absolute inset-y-[-12%] left-[40%] z-[1] w-[26%] bg-[linear-gradient(90deg,transparent_0%,rgba(2,3,5,0.5)_38%,rgba(2,3,5,0.68)_58%,transparent_100%)] blur-2xl" />
           <div className="relative z-10 mx-auto grid max-w-[1480px] items-center gap-6 px-5 sm:px-8 lg:grid-cols-[0.9fr_1fr] lg:px-14">
-            <div className="min-h-[300px]" aria-hidden="true" />
+            <div className="hidden min-h-[300px] lg:block" aria-hidden="true" />
             <div>
               <p className="mb-3 text-sm font-black uppercase tracking-wide text-[#b9ff22]">
                 Built For Every Fan
@@ -537,9 +538,9 @@ export default function CommunitiesPage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 min-h-[430px] w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-12">
+        <section className="relative left-1/2 min-h-0 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-12 lg:min-h-[430px]">
           <div
-            className="pointer-events-none absolute bottom-0 right-[12vw] top-0 w-[64vw] max-w-[1240px]"
+            className="pointer-events-none absolute bottom-0 right-[12vw] top-0 hidden w-[64vw] max-w-[1240px] lg:block"
             style={{
               WebkitMaskImage:
                 "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
@@ -580,40 +581,16 @@ export default function CommunitiesPage() {
                 ways for communities to interact around the games they love.
               </p>
             </div>
-            <div className="min-h-[280px]" aria-hidden="true" />
+            <div className="hidden min-h-[280px] lg:block" aria-hidden="true" />
           </div>
         </section>
 
-        <section className="grid items-center gap-6 py-8 text-center lg:grid-cols-[1fr_360px] lg:text-left">
-          <div>
-            <h2 className="text-4xl font-black text-white">
-              Ready To Find Your <span className="text-[#b9ff22]">Sideline?</span>
-            </h2>
-            <p className="mt-2 text-sm text-zinc-400">
-              Join the waitlist today and be among the first fans to experience
-              the future of sports communities.
-            </p>
-            <Link
-              href="/waitlist"
-              className="mt-5 inline-flex h-12 items-center justify-center rounded-lg bg-[#b9ff22] px-10 text-sm font-black text-black transition hover:bg-[#d0ff53]"
-            >
-              Join a Community
-            </Link>
-          </div>
-          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
-            <h3 className="mb-4 text-sm font-black text-white">The Road Ahead</h3>
-            {["Waitlist", "QR Code Download", "Open App"].map((step, index) => (
-              <div key={step} className="flex items-center gap-3 py-2 text-xs text-zinc-400">
-                <span
-                  className={`h-3 w-3 rounded-full ${
-                    index === 0 ? "bg-[#b9ff22]" : "bg-white/15"
-                  }`}
-                />
-                Phase {index + 1}: {step}
-              </div>
-            ))}
-          </div>
-        </section>
+        <StadiumCta
+          body="Join the waitlist and be among the first fans to discover communities built around the teams, creators, and sports you care about."
+          buttonLabel="Join a Community"
+          eyebrow="Find your people"
+          title="Ready to find your community?"
+        />
 
       </div>
     </main>

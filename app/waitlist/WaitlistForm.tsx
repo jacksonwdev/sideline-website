@@ -2,6 +2,7 @@
 
 import { Check, LockKeyhole } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { SidelineSelect } from "../components/SidelineSelect";
 import { getSupabaseClient } from "../lib/supabase";
 
 const sports = [
@@ -131,20 +132,20 @@ export function WaitlistForm() {
       <label className="mt-6 block text-sm font-bold" htmlFor="role">
         I am a...
       </label>
-      <select
-        className="sideline-select mt-3 h-14 w-full rounded-md border border-white/15 bg-[#090b0c] px-4 text-zinc-300 outline-none transition focus:border-[#b9ff22]/70 focus:ring-2 focus:ring-[#b9ff22]/10"
-        defaultValue=""
+      <SidelineSelect
+        className="mt-3"
         id="role"
         name="role"
+        options={[
+          { label: "Sports fan", value: "fan" },
+          { label: "Creator", value: "creator" },
+          { label: "Analyst", value: "analyst" },
+          { label: "Community builder", value: "community-builder" },
+          { label: "Other", value: "other" },
+        ]}
+        placeholder="Select one"
         required
-      >
-        <option disabled value="">Select one</option>
-        <option value="fan">Sports fan</option>
-        <option value="creator">Creator</option>
-        <option value="analyst">Analyst</option>
-        <option value="community-builder">Community builder</option>
-        <option value="other">Other</option>
-      </select>
+      />
       <p className="mt-2 text-xs text-zinc-500">This helps us personalize your experience.</p>
 
       <fieldset className="mt-6">

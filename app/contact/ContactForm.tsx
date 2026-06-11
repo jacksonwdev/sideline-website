@@ -2,6 +2,7 @@
 
 import { Check, LoaderCircle, LockKeyhole, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { SidelineSelect } from "../components/SidelineSelect";
 import { getSupabaseClient } from "../lib/supabase";
 
 const categories = [
@@ -141,25 +142,22 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="mt-5 block text-sm font-bold" htmlFor="contact-category">
-        Category
-        <select
-          className={`sideline-select ${fieldClass} h-14 bg-[#090b0c] text-zinc-300`}
-          defaultValue=""
+      <div className="mt-5">
+        <label className="block text-sm font-bold" htmlFor="contact-category">
+          Category
+        </label>
+        <SidelineSelect
+          className="mt-2.5"
           id="contact-category"
           name="category"
+          options={categories.map((category) => ({
+            label: category,
+            value: category,
+          }))}
+          placeholder="Select a topic"
           required
-        >
-          <option disabled value="">
-            Select a topic
-          </option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </label>
+        />
+      </div>
 
       <label className="mt-5 block text-sm font-bold" htmlFor="contact-subject">
         Subject

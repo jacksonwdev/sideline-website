@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
+import { StadiumCta } from "../components/StadiumCta";
 
 export const metadata: Metadata = {
   title: "Creators | Sideline",
@@ -421,7 +422,7 @@ export default function CreatorsPage() {
           id="how-it-works"
           className="grid gap-3 py-3 lg:grid-cols-[0.98fr_1.02fr]"
         >
-          <article className="relative min-h-[460px] overflow-hidden rounded-lg border border-white/10 border-l-[#b9ff22]/55 bg-[#07090b]/95 p-8 shadow-[0_22px_70px_rgba(0,0,0,0.3),inset_3px_0_20px_rgba(185,255,34,0.04)]">
+          <article className="relative min-h-0 overflow-hidden rounded-lg border border-white/10 border-l-[#b9ff22]/55 bg-[#07090b]/95 p-6 shadow-[0_22px_70px_rgba(0,0,0,0.3),inset_3px_0_20px_rgba(185,255,34,0.04)] sm:p-8 lg:min-h-[460px]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_24%,rgba(185,255,34,0.22),transparent_34%),linear-gradient(115deg,transparent_0%,transparent_44%,rgba(185,255,34,0.07)_100%)]" />
             <div className="absolute right-[-70px] top-[-110px] h-72 w-72 rounded-full border border-[#b9ff22]/15" />
             <div className="absolute right-[-20px] top-[-80px] h-56 w-56 rounded-full border border-[#b9ff22]/10" />
@@ -461,7 +462,7 @@ export default function CreatorsPage() {
                   ))}
                 </div>
               </div>
-              <div className="relative hidden min-h-[390px] sm:block">
+              <div className="relative hidden min-h-[390px] lg:block">
                 <div className="absolute bottom-[-70px] left-1/2 w-[210px] -translate-x-1/2 xl:w-[228px]">
                   <div className="absolute -inset-10 rounded-[3rem] bg-[#b9ff22]/18 blur-3xl" />
                   <div className="absolute inset-x-5 bottom-[-10px] h-8 rounded-full bg-[#b9ff22]/30 blur-xl" />
@@ -780,37 +781,14 @@ export default function CreatorsPage() {
           </article>
         </section>
 
-        <section
-          id="apply"
-          className="relative my-8 min-h-[310px] overflow-hidden rounded-lg border border-[#b9ff22]/70 bg-[#071004] p-8 shadow-[0_0_50px_rgba(185,255,34,0.18)] sm:p-12"
-        >
-          <Image
-            src="/assets/creators-cta-crowd-v1.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="pointer-events-none object-cover object-right opacity-95"
+        <div id="apply">
+          <StadiumCta
+            body="Sideline is just getting started. Apply for early access and help shape the future of creator-led sports communities."
+            buttonLabel="Become a Creator"
+            eyebrow="Build with us"
+            title="Ready to bring your fans to the Sideline?"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020305] via-[#020305]/76 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#020305]/80 to-transparent" />
-          <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[0.7fr_0.3fr]">
-            <div>
-              <h2 className="max-w-2xl text-4xl font-black leading-tight text-white sm:text-5xl">
-                Ready to bring your fans to the Sideline?
-              </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300">
-                Sideline is just getting started. Apply for early access and
-                help shape the future of sports communities.
-              </p>
-            </div>
-            <Link
-              href="/waitlist"
-              className="inline-flex h-14 items-center justify-center rounded-lg bg-[#b9ff22] px-8 text-sm font-black text-black transition hover:bg-[#d0ff53]"
-            >
-              Become a Creator
-            </Link>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
   );

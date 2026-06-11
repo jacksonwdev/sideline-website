@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
+import { StadiumCta } from "../components/StadiumCta";
 
 export const metadata: Metadata = {
   title: "Competition | Sideline",
@@ -553,32 +554,12 @@ export default function CompetitionPage() {
           </div>
         </section>
 
-        <section className="relative min-h-[230px] overflow-hidden rounded-lg border border-[#a8ff00]/60 bg-black px-7 py-10 shadow-[0_0_45px_rgba(168,255,0,.12)] sm:px-10">
-          <Image
-            alt=""
-            className="scale-105 object-cover object-[center_58%] opacity-75"
-            fill
-            sizes="(max-width: 1480px) 100vw, 1480px"
-            src="/assets/creators-cta-crowd-v1.png"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/5" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent" />
-          <div className="relative grid min-h-[150px] items-center gap-7 sm:grid-cols-[1fr_auto]">
-            <div>
-              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#a8ff00]">Your run starts here</span>
-              <h2 className="mt-2 text-4xl font-black sm:text-5xl">Ready to Compete?</h2>
-              <p className="mt-3 max-w-lg text-zinc-300">
-                Join the waitlist and be among the first users to climb the Sideline rankings.
-              </p>
-            </div>
-            <Link
-              className="rounded-md bg-[#a8ff00] px-10 py-4 text-center text-sm font-black text-black shadow-[0_0_28px_rgba(168,255,0,.24)] transition hover:bg-[#b9ff36] hover:shadow-[0_0_36px_rgba(168,255,0,.35)]"
-              href="/waitlist"
-            >
-              Join the Waitlist
-            </Link>
-          </div>
-        </section>
+        <StadiumCta
+          body="Join the waitlist and be among the first fans to make picks, challenge rivals, and climb the Sideline rankings."
+          buttonLabel="Start Competing"
+          eyebrow="Your run starts here"
+          title="Ready to put your knowledge to the test?"
+        />
       </div>
     </main>
   );

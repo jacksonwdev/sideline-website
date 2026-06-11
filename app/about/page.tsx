@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
+import { StadiumCta } from "../components/StadiumCta";
 
 export const metadata: Metadata = {
   title: "About | Sideline",
@@ -423,32 +424,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="relative my-7 min-h-[270px] overflow-hidden rounded-lg border border-[#b9ff22]/60 bg-black p-7 shadow-[0_0_40px_rgba(185,255,34,.1)] sm:p-10">
-          <Image
-            alt=""
-            className="object-cover object-[center_48%] opacity-72"
-            fill
-            sizes="(max-width: 1480px) 100vw, 1480px"
-            src="/assets/about-sports-culture-hero-v1.png"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/10" />
-          <div className="relative flex min-h-[190px] max-w-lg flex-col justify-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.18em] text-[#b9ff22]">
-                Be Part Of The Beginning
-              </span>
-              <h2 className="mt-3 text-4xl font-black sm:text-5xl">Join The Sideline</h2>
-              <p className="mt-4 text-zinc-300">
-                We are building the future of sports communities, and we would love
-                to have you with us from the beginning.
-              </p>
-              <Link
-                className="mt-7 w-fit rounded-md bg-[#b9ff22] px-8 py-3.5 text-sm font-black text-black transition hover:bg-[#d0ff53]"
-                href="/waitlist"
-              >
-                Join the Waitlist
-              </Link>
-          </div>
-        </section>
+        <StadiumCta
+          body="Join the waitlist and help shape a platform built to bring sports fans, creators, and communities together."
+          buttonLabel="Join the Sideline"
+          eyebrow="Be part of the beginning"
+          title="Ready to help build the future of sports communities?"
+        />
       </div>
     </main>
   );

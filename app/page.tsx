@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, House, Radio, UsersRound } from "lucide-react";
 import { HeroBadge } from "./components/HeroBadge";
 import { SiteHeader } from "./components/SiteHeader";
+import { StadiumCta } from "./components/StadiumCta";
 
 const features = [
   {
@@ -251,6 +252,12 @@ export default function Home() {
           </aside>
         </section>
 
+        <StadiumCta
+          body="Get early access to the place where sports conversations, predictions, creators, and competition finally come together."
+          buttonLabel="Claim Early Access"
+          eyebrow="The game continues here"
+          title="Your sports world deserves one home."
+        />
       </div>
     </main>
   );

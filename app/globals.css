@@ -36,20 +36,6 @@ body {
   color: #020305;
 }
 
-.sideline-select {
-  color-scheme: dark;
-}
-
-.sideline-select option {
-  background: #090b0c;
-  color: #e4e4e7;
-}
-
-.sideline-select option:checked {
-  background: #26350d;
-  color: #b9ff22;
-}
-
 @keyframes sideline-enter {
   from {
     opacity: 0;
