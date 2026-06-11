@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Contact | Sideline",
   description:
     "Contact Sideline about creator partnerships, business opportunities, press, investment, support, or general questions.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const categories = [

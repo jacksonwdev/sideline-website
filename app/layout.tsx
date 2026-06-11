@@ -18,9 +18,6 @@ export const metadata: Metadata = {
   title: "Sideline",
   description: "Sports communities, creators, and competition in one place.",
   applicationName: "Sideline",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Sideline",
     description: "Sports communities, creators, and competition in one place.",

@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   title: "About | Sideline",
   description:
     "Learn why Sideline is building a dedicated home for sports communities, creators, competition, and connection.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const missionItems = [

@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, House, Radio, UsersRound } from "lucide-react";
 import { HeroBadge } from "./components/HeroBadge";
 import { SiteHeader } from "./components/SiteHeader";
 import { StadiumCta } from "./components/StadiumCta";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const features = [
   {

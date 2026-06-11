@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Communities | Sideline",
   description:
     "Find sports communities on Sideline for discussion, predictions, leaderboards, premium channels, and fan events.",
+  alternates: {
+    canonical: "/communities",
+  },
 };
 
 const channels = [
@@ -391,7 +394,7 @@ export default function CommunitiesPage() {
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
               <Link
-                href="/competition"
+                href="/compete"
                 className="motion-action motion-action-dark group inline-flex h-14 items-center justify-center gap-3 rounded-lg border border-[#b9ff22]/45 bg-white/[0.02] px-8 text-sm font-bold text-white transition hover:border-[#b9ff22] hover:bg-[#b9ff22]/5"
               >
                 See Fans Compete

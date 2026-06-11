@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Sideline",
   description:
     "Learn how Sideline collects, uses, stores, and protects information submitted through sidelinesocials.com.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 const sections = [

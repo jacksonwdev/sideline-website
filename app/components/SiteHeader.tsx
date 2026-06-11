@@ -9,7 +9,7 @@ const navItems = [
   ["Home", "/"],
   ["Communities", "/communities"],
   ["Creators", "/creators"],
-  ["Compete", "/competition"],
+  ["Compete", "/compete"],
   ["About", "/about"],
 ];
 

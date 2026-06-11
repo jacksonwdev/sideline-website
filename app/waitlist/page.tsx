@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "Join the Waitlist | Sideline",
   description:
     "Join the Sideline waitlist and help shape the future of sports communities.",
+  alternates: {
+    canonical: "/waitlist",
+  },
 };
 
 const benefits = [

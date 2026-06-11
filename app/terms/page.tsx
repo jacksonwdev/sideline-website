@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Terms of Service | Sideline",
   description:
     "Review the terms that apply when using Sideline and sidelinesocials.com.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 const sections = [

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Creators | Sideline",
   description:
     "Build and monetize a sports community on Sideline with premium channels, referrals, subscriptions, and creator tools.",
+  alternates: {
+    canonical: "/creators",
+  },
 };
 
 const creatorBenefits = [
