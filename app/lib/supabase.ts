@@ -1,15 +1,17 @@
 import { createClient } from "@supabase/supabase-js";
 
-type Database = {
+export type Database = {
   public: {
     Tables: {
       waitlist: {
         Row: {
+          id: number;
           name: string;
           email: string;
           user_type: string;
           favorite_sport: string | null;
           referral_code: string | null;
+          created_at: string;
         };
         Insert: {
           name: string;

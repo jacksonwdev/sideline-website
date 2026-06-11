@@ -230,12 +230,12 @@ export default function Home() {
             <h2 className="text-2xl font-bold leading-tight text-white">
               Ready to grow your community?
             </h2>
-            <a
+            <Link
               href="/waitlist"
               className="motion-action mt-8 inline-flex h-14 w-full items-center justify-center rounded-lg bg-[#b9ff22] px-5 text-sm font-black text-black transition hover:bg-[#d0ff53]"
             >
               Start Your Community
-            </a>
+            </Link>
             <p className="mt-5 text-sm text-zinc-400">It&apos;s free to get started.</p>
             <div className="mt-8 flex flex-1 items-center border-t border-white/10 py-8">
               <div className="w-full rounded-lg border border-[#b9ff22]/20 bg-[#b9ff22]/[0.055] p-5">
