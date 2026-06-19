@@ -6,12 +6,12 @@ import { SidelineSelect } from "../components/SidelineSelect";
 import { getSupabaseClient } from "../lib/supabase";
 
 const categories = [
-  "General Questions",
   "Creator Partnerships",
-  "Business Partnerships",
-  "Press & Media",
-  "Investor Inquiries",
+  "Community Questions",
+  "Brand & Business Partnerships",
+  "General Questions",
   "Technical Support",
+  "Press & Investors",
 ];
 
 export function ContactForm() {

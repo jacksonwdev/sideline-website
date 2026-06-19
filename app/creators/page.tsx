@@ -55,10 +55,10 @@ const teamRoles = [
 ];
 
 const activityItems = [
-  ["New Subscriber", "+ $9.99", "2m ago"],
-  ["Referral Conversion", "+ $25.00", "12m ago"],
-  ["Premium Upgrade", "+ $19.99", "28m ago"],
-  ["New Subscriber", "+ $9.99", "1h ago"],
+  ["New Subscriber", "Premium", "Just now"],
+  ["Referral Conversion", "Referral", "Today"],
+  ["Premium Upgrade", "Upgrade", "Today"],
+  ["New Member", "Joined", "Today"],
 ];
 
 function CreatorBenefitIcon({ type }: Readonly<{ type: string }>) {
@@ -171,9 +171,9 @@ function TeamRoleIcon({ role }: Readonly<{ role: string }>) {
 
 function CreatorCommandCenter() {
   const metrics = [
-    ["Members", "12,458", "+18%"],
-    ["Paid", "3,210", "+34%"],
-    ["Revenue", "$24,560", "+41%"],
+    ["Your community", "Members"],
+    ["Premium tiers", "Subscriptions"],
+    ["Creator payouts", "Revenue"],
   ];
 
   return (
@@ -199,12 +199,12 @@ function CreatorCommandCenter() {
             </div>
           </div>
           <span className="hidden rounded-md border border-white/10 bg-white/[0.035] px-3 py-2 text-[10px] font-black text-zinc-300 sm:block">
-            Live
+            Preview
           </span>
         </div>
 
         <div className="grid gap-3 border-b border-white/8 p-4 sm:grid-cols-3 sm:p-5">
-          {metrics.map(([label, value, change], index) => (
+          {metrics.map(([label, value], index) => (
             <div
               className={`rounded-lg border p-4 ${
                 index === 2
@@ -217,8 +217,7 @@ function CreatorCommandCenter() {
                 {label}
               </p>
               <div className="mt-2 flex items-end justify-between gap-2">
-                <strong className="text-xl font-black text-white sm:text-2xl">{value}</strong>
-                <span className="text-[10px] font-black text-[#b9ff22]">{change}</span>
+                <strong className="text-lg font-black text-white sm:text-xl">{value}</strong>
               </div>
             </div>
           ))}
@@ -274,7 +273,7 @@ function CreatorCommandCenter() {
 
             <div className="mt-4 flex items-center justify-between border-t border-white/8 pt-4 text-xs">
               <span className="text-zinc-500">Weekly active fans</span>
-              <strong className="text-white">8,942</strong>
+              <strong className="text-white">Track engagement</strong>
             </div>
           </div>
 
@@ -289,7 +288,7 @@ function CreatorCommandCenter() {
                 </span>
               </div>
               <p className="mt-5 text-[10px] font-bold text-zinc-500">Creator earnings</p>
-              <p className="mt-1 text-2xl font-black">$24,560</p>
+              <p className="mt-1 text-xl font-black">Your dashboard</p>
               <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/8">
                 <div className="h-full w-[76%] bg-[#b9ff22]" />
               </div>
@@ -301,8 +300,8 @@ function CreatorCommandCenter() {
               </p>
               <div className="mt-4 space-y-3">
                 {[
-                  ["Premium joined", "+$9.99"],
-                  ["Referral converted", "+$25.00"],
+                  ["Premium joined", "New"],
+                  ["Referral converted", "New"],
                   ["New member", "Live"],
                 ].map(([label, value], index) => (
                   <div className="flex items-center gap-3" key={label}>
@@ -350,16 +349,9 @@ export default function CreatorsPage() {
       <div className="relative mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-14">
         <SiteHeader active="Creators" />
 
-        <section className="relative left-1/2 min-h-0 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 lg:min-h-[720px]">
-          <Image
-            src="/assets/communities-sports-overlay-v4.png"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="pointer-events-none hidden scale-110 object-cover object-center opacity-30 mix-blend-screen lg:block"
-          />
-          <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,#020305_2%,rgba(2,3,5,0.9)_38%,rgba(2,3,5,0.58)_100%)] lg:block" />
+        <section className="relative left-1/2 min-h-0 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 bg-[#050708] lg:min-h-[720px]">
+          <div className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(circle_at_76%_34%,rgba(185,255,34,0.15),transparent_44%),radial-gradient(circle_at_12%_84%,rgba(185,255,34,0.05),transparent_40%)] lg:block" />
+          <div className="pointer-events-none absolute inset-0 hidden opacity-[0.16] [background-image:linear-gradient(rgba(185,255,34,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(185,255,34,0.06)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(circle_at_72%_38%,black,transparent_72%)] lg:block" />
           <div className="absolute right-[5%] top-14 hidden size-72 rounded-full border border-[#b9ff22]/8 lg:block" />
           <div className="absolute right-[12%] top-28 hidden size-44 rounded-full border border-[#b9ff22]/10 lg:block" />
           <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#070a0b]/55 to-transparent" />
@@ -374,9 +366,9 @@ export default function CreatorsPage() {
               <span className="text-[#b9ff22]">Get paid when it grows.</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-300">
-              Sideline gives sports creators a home for their fans to talk
-              games, make predictions, compete, and unlock premium community
-              experiences.
+              Sideline gives sports creators a home for their fans — communities,
+              predictions, and competition together, not a Patreon-style feed
+              on its own.
             </p>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -401,29 +393,77 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        <section className="relative z-10 mt-8 rounded-lg border border-white/10 bg-[#07090b]/95 p-7 shadow-[0_22px_70px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:p-9">
-          <h2 className="mb-7 text-3xl font-black text-white">
+        <section className="relative z-10 mt-6 rounded-lg border border-white/10 bg-[#07090b]/95 p-5 shadow-[0_22px_70px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:mt-8 sm:p-9">
+          <h2 className="mb-5 text-2xl font-black text-white sm:mb-7 sm:text-3xl">
             Why Creators Use Sideline
           </h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {creatorBenefits.map(([icon, title, body]) => (
               <article
                 key={title}
-                className="min-h-[220px] rounded-lg border border-white/10 bg-[radial-gradient(circle_at_20%_0%,rgba(185,255,34,0.18),rgba(255,255,255,0.035)_44%,rgba(255,255,255,0.012)_100%)] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_20px_60px_rgba(0,0,0,0.25)]"
+                className="rounded-lg border border-white/10 bg-[radial-gradient(circle_at_20%_0%,rgba(185,255,34,0.18),rgba(255,255,255,0.035)_44%,rgba(255,255,255,0.012)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_20px_60px_rgba(0,0,0,0.25)] sm:min-h-[220px] sm:p-7"
               >
-                <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-[#b9ff22]/35 bg-[#b9ff22]/16 shadow-[0_0_28px_rgba(185,255,34,0.18)]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#b9ff22]/35 bg-[#b9ff22]/16 shadow-[0_0_28px_rgba(185,255,34,0.18)] sm:mb-7 sm:h-16 sm:w-16">
                   <CreatorBenefitIcon type={icon} />
                 </div>
-                <h3 className="text-lg font-black text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-300">{body}</p>
+                <h3 className="text-base font-black text-white sm:text-lg">{title}</h3>
+                <p className="mt-2 text-xs leading-5 text-zinc-300 sm:mt-3 sm:text-sm sm:leading-6">{body}</p>
               </article>
             ))}
           </div>
         </section>
 
+        <section className="mt-6 overflow-hidden rounded-lg border border-[#b9ff22]/25 bg-[radial-gradient(circle_at_15%_0%,rgba(185,255,34,0.12),rgba(7,9,11,0.96)_46%)] p-5 shadow-[0_22px_70px_rgba(0,0,0,0.3)] sm:p-9">
+          <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-10">
+            <div>
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
+                Built for creators, not against them
+              </span>
+              <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                Why Sideline Is Creator Friendly
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-7 text-zinc-300 sm:text-base">
+                Most platforms own the audience. Sideline is designed to help
+                creators build deeper relationships with their communities
+                instead of competing for attention in someone else&apos;s feed.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {[
+                {
+                  Icon: ShieldCheck,
+                  title: "You control your community",
+                  body: "Your space, your rules, your members — not an algorithm's.",
+                },
+                {
+                  Icon: Users,
+                  title: "Direct relationships",
+                  body: "Talk to your fans directly instead of fighting for reach.",
+                },
+                {
+                  Icon: UserPlus,
+                  title: "Grow alongside fans",
+                  body: "Build something lasting as your community grows with you.",
+                },
+              ].map(({ Icon, title, body }) => (
+                <div
+                  key={title}
+                  className="rounded-lg border border-white/10 bg-white/[0.025] p-5"
+                >
+                  <span className="grid size-11 place-items-center rounded-lg border border-[#b9ff22]/30 bg-[#b9ff22]/8 text-[#b9ff22]">
+                    <Icon className="size-5" />
+                  </span>
+                  <h3 className="mt-4 text-sm font-black text-white">{title}</h3>
+                  <p className="mt-1.5 text-xs leading-5 text-zinc-400">{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section
           id="how-it-works"
-          className="grid gap-3 py-3 lg:grid-cols-[0.98fr_1.02fr]"
+          className="grid gap-6 py-6 sm:gap-3 sm:py-4 lg:grid-cols-[0.98fr_1.02fr]"
         >
           <article className="relative min-h-0 overflow-hidden rounded-lg border border-white/10 border-l-[#b9ff22]/55 bg-[#07090b]/95 p-6 shadow-[0_22px_70px_rgba(0,0,0,0.3),inset_3px_0_20px_rgba(185,255,34,0.04)] sm:p-8 lg:min-h-[460px]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_24%,rgba(185,255,34,0.22),transparent_34%),linear-gradient(115deg,transparent_0%,transparent_44%,rgba(185,255,34,0.07)_100%)]" />
@@ -489,7 +529,7 @@ export default function CreatorsPage() {
                             <p className="truncate text-[10px] font-black text-white">
                               Coach D&apos;s Community
                             </p>
-                            <p className="text-[8px] text-zinc-400">12.4K members</p>
+                            <p className="text-[8px] text-zinc-400">Sports community</p>
                           </div>
                           <div className="rounded-full border border-[#b9ff22]/35 bg-[#b9ff22]/12 px-2 py-1 text-[7px] font-black text-[#b9ff22]">
                             LIVE
@@ -506,8 +546,8 @@ export default function CreatorsPage() {
                       <div className="grid grid-cols-3 gap-1.5 px-3 pt-3">
                         {[
                           ["24/7", "Chat"],
-                          ["82%", "Pick"],
-                          ["#4", "Rank"],
+                          ["Live", "Picks"],
+                          ["Top", "Rank"],
                         ].map(([value, label]) => (
                           <div key={label} className="rounded-md border border-white/8 bg-white/[0.035] px-2 py-1.5">
                             <p className="text-[9px] font-black text-[#b9ff22]">{value}</p>
@@ -526,14 +566,14 @@ export default function CreatorsPage() {
                             <div className="h-2 rounded-full bg-white/10">
                               <div className="h-full w-[72%] rounded-full bg-[#b9ff22]" />
                             </div>
-                            <span className="text-[8px] font-black text-[#b9ff22]">72%</span>
+                            <span className="text-[8px] font-black text-[#b9ff22]">Live</span>
                           </div>
                         </div>
                         {[
-                          { tag: "CHAT", label: "Game Day Chat", status: "128 online", locked: false },
-                          { tag: "TOP", label: "Weekly Leaderboard", status: "#1 fan", locked: false },
+                          { tag: "CHAT", label: "Game Day Chat", status: "Live", locked: false },
+                          { tag: "TOP", label: "Weekly Leaderboard", status: "Ranked", locked: false },
                           { tag: "VIP", label: "Premium Picks", status: "Paid", locked: true },
-                          { tag: "MOD", label: "Admin Tools", status: "4 mods", locked: false },
+                          { tag: "MOD", label: "Admin Tools", status: "Mods", locked: false },
                           { tag: "POST", label: "Creator Post Drop", status: "New", locked: true },
                         ].map(({ tag, label, status, locked }) => (
                           <div
@@ -622,7 +662,7 @@ export default function CreatorsPage() {
           </article>
         </section>
 
-        <section className="grid gap-3 py-3 lg:grid-cols-[0.82fr_0.55fr_0.55fr]">
+        <section className="grid gap-6 py-6 sm:gap-3 sm:py-4 lg:grid-cols-[0.82fr_0.55fr_0.55fr]">
           <article className="relative overflow-hidden rounded-lg border border-white/10 bg-[#07090b]/95 p-8 shadow-[0_22px_70px_rgba(0,0,0,0.28)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_70%,rgba(185,255,34,0.1),transparent_34%)]" />
             <div className="relative z-10">
@@ -715,12 +755,12 @@ export default function CreatorsPage() {
             <div className="mt-auto pt-5">
               <div className="grid grid-cols-2 gap-2 rounded-lg border border-white/8 bg-black/25 p-3">
                 <div>
-                  <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">Team size</p>
-                  <p className="mt-1 text-sm font-black text-white">4 members</p>
+                  <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">Your team</p>
+                  <p className="mt-1 text-sm font-black text-white">Add roles</p>
                 </div>
                 <div className="border-l border-white/10 pl-3">
-                  <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">Next payout</p>
-                  <p className="mt-1 text-sm font-black text-[#b9ff22]">Jul 1</p>
+                  <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">Payouts</p>
+                  <p className="mt-1 text-sm font-black text-[#b9ff22]">Automatic</p>
                 </div>
               </div>
             </div>
@@ -729,11 +769,11 @@ export default function CreatorsPage() {
             <div className="mb-5 flex items-center justify-between">
               <div>
                 <h3 className="text-sm font-black text-white">Recent Activity</h3>
-                <p className="mt-1 text-[10px] font-semibold text-zinc-500">Live creator earnings</p>
+                <p className="mt-1 text-[10px] font-semibold text-zinc-500">Sample activity feed</p>
               </div>
               <span className="flex items-center gap-2 text-[10px] font-black text-[#b9ff22]">
                 <span className="h-2 w-2 rounded-full bg-[#b9ff22] shadow-[0_0_10px_rgba(185,255,34,0.8)]" />
-                Live
+                Preview
               </span>
             </div>
             <div className="space-y-2">
@@ -764,11 +804,11 @@ export default function CreatorsPage() {
                 <div className="flex items-end justify-between">
                   <div>
                     <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">
-                      Today&apos;s revenue
+                      Earnings dashboard
                     </p>
-                    <p className="mt-1 text-xl font-black text-white">$64.97</p>
+                    <p className="mt-1 text-base font-black text-white">Track daily revenue</p>
                   </div>
-                  <p className="text-xs font-black text-[#b9ff22]">+18.4%</p>
+                  <ChartNoAxesColumnIncreasing className="size-5 text-[#b9ff22]" />
                 </div>
                 <div className="mt-3 flex h-8 items-end gap-1">
                   {[35, 48, 42, 63, 55, 76, 68, 92].map((height, index) => (

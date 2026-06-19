@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BriefcaseBusiness,
   ChevronRight,
   CircleHelp,
   Handshake,
   Headphones,
   Mail,
+  Mic2,
   Newspaper,
   Rocket,
-  UserRound,
+  Users,
 } from "lucide-react";
 import { SiteHeader } from "../components/SiteHeader";
 import { ContactForm } from "./ContactForm";
@@ -18,7 +18,7 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact | Sideline",
   description:
-    "Contact Sideline about creator partnerships, business opportunities, press, investment, support, or general questions.",
+    "Contact Sideline about creator partnerships, communities, business opportunities, support, or general questions.",
   alternates: {
     canonical: "/contact",
   },
@@ -26,34 +26,34 @@ export const metadata: Metadata = {
 
 const categories = [
   {
+    title: "Creator Partnerships",
+    copy: "Build a sports community and grow alongside the platform.",
+    Icon: Mic2,
+  },
+  {
+    title: "Community Questions",
+    copy: "Ask about joining, starting, or growing a community on Sideline.",
+    Icon: Users,
+  },
+  {
+    title: "Brand & Business Partnerships",
+    copy: "Explore strategic, technology, or community opportunities.",
+    Icon: Handshake,
+  },
+  {
     title: "General Questions",
     copy: "Questions about Sideline, the waitlist, or what we're building.",
     Icon: CircleHelp,
   },
   {
-    title: "Creator Partnerships",
-    copy: "Build a sports community and grow alongside the platform.",
-    Icon: UserRound,
-  },
-  {
-    title: "Business Partnerships",
-    copy: "Explore strategic, technology, or community opportunities.",
-    Icon: Handshake,
-  },
-  {
-    title: "Press & Media",
-    copy: "Company information, interviews, and media requests.",
-    Icon: Newspaper,
-  },
-  {
-    title: "Investor Inquiries",
-    copy: "Learn more about Sideline's vision and future.",
-    Icon: BriefcaseBusiness,
-  },
-  {
     title: "Technical Support",
     copy: "Report a problem or get help using the website.",
     Icon: Headphones,
+  },
+  {
+    title: "Press & Investors",
+    copy: "Media requests and inquiries about our vision.",
+    Icon: Newspaper,
   },
 ];
 
@@ -61,7 +61,7 @@ const faqs = [
   {
     question: "When should I expect a response?",
     answer:
-      "We aim to respond within 48-72 hours. Partnership, press, and investor inquiries may take a little longer when additional review is needed.",
+      "We typically respond within a few business days. Partnership and creator inquiries may take a little longer when additional review is needed.",
   },
   {
     question: "Can creators contact Sideline before launch?",
@@ -96,9 +96,8 @@ export default function ContactPage() {
               We&apos;d love to hear from you.
             </p>
             <p className="mt-4 max-w-xl leading-7 text-zinc-400 sm:max-w-2xl">
-              Whether you&apos;re a fan, creator, partner, member of the press,
-              or potential investor, send us a note and we&apos;ll route it to
-              the right person.
+              Whether you&apos;re a fan, a creator, or a potential partner, send
+              us a note and we&apos;ll route it to the right person.
             </p>
           </div>
 
@@ -163,8 +162,8 @@ export default function ContactPage() {
             <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.025] p-5">
               <p className="text-sm font-black text-white">Response time</p>
               <p className="mt-2 text-sm leading-6 text-zinc-400">
-                Most messages receive a response within{" "}
-                <strong className="text-[#b9ff22]">48-72 hours</strong>.
+                We typically respond within{" "}
+                <strong className="text-[#b9ff22]">a few business days</strong>.
               </p>
             </div>
 

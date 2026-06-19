@@ -102,7 +102,7 @@ function CommunityDashboard() {
                   <p className="truncate text-sm font-black sm:text-base">Fourth Down Society</p>
                   <span className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-500">
                     <span className="size-1.5 rounded-full bg-[#b9ff22] shadow-[0_0_8px_#b9ff22]" />
-                    12.4K fans online
+                    Live game room
                   </span>
                 </div>
               </div>
@@ -159,7 +159,7 @@ function CommunityDashboard() {
                       <span className="text-[9px] font-black uppercase tracking-[0.16em] text-zinc-500">Live pulse</span>
                       <span className="flex items-center gap-1 text-[9px] font-bold text-[#b9ff22]">
                         <Zap className="size-3 fill-[#b9ff22]" />
-                        328 active
+                        Live now
                       </span>
                     </div>
                     <div className="mt-3 space-y-3">
@@ -200,7 +200,7 @@ function CommunityDashboard() {
                     <div className="flex items-center justify-between rounded-lg border border-[#b9ff22]/20 bg-[#b9ff22]/[0.055] p-3">
                       <div>
                         <span className="text-[8px] font-black uppercase tracking-[0.16em] text-zinc-500">Your community rank</span>
-                        <p className="mt-1 text-sm font-black"><span className="text-[#b9ff22]">#14</span> this week</p>
+                        <p className="mt-1 text-sm font-black"><span className="text-[#b9ff22]">Climb</span> the board</p>
                       </div>
                       <ChevronRight className="size-4 text-[#b9ff22]" />
                     </div>
@@ -233,7 +233,7 @@ function CommunityPreview() {
       title: "Drop your prediction",
       copy: "Fans lock in picks and share the matchup takes they want on record.",
       Icon: Trophy,
-      stat: "4.8K picks",
+      stat: "Picks open",
     },
     {
       time: "8:20 PM",
@@ -241,7 +241,7 @@ function CommunityPreview() {
       title: "The room goes live",
       copy: "Every drive, call, and momentum swing becomes a shared conversation.",
       Icon: Radio,
-      stat: "328 live",
+      stat: "Room live",
     },
     {
       time: "10:47 PM",
@@ -249,7 +249,7 @@ function CommunityPreview() {
       title: "Results update",
       copy: "Correct picks, streaks, and community rankings settle automatically.",
       Icon: Zap,
-      stat: "+640 pts",
+      stat: "Results in",
     },
     {
       time: "11:05 PM",
@@ -287,14 +287,14 @@ function CommunityPreview() {
                 </span>
               ))}
             </span>
-            <strong className="text-white">12.4K</strong> fans following
+            Fans following along
           </div>
         </div>
 
-        <div className="relative grid gap-3 md:grid-cols-4">
+        <div className="relative -mx-2 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
           <div className="pointer-events-none absolute left-[8%] right-[8%] top-[37px] hidden h-px bg-gradient-to-r from-[#b9ff22]/15 via-[#b9ff22] to-[#b9ff22]/15 md:block" />
           {gameDayStages.map(({ time, label, title, copy, Icon, stat }, index) => (
-            <div className="relative" key={label}>
+            <div className="relative w-[78%] shrink-0 snap-center md:w-auto md:shrink" key={label}>
               <div
                 className={`relative z-10 mx-5 grid size-[74px] place-items-center rounded-full border bg-[#080b0c] md:mx-auto ${
                   index === 1
@@ -371,7 +371,7 @@ export default function CommunitiesPage() {
             <HeroBadge icon={Users}>
               Communities
             </HeroBadge>
-            <h1 className="text-6xl font-black leading-[0.94] tracking-normal text-white sm:text-7xl lg:text-[5.4rem]">
+            <h1 className="text-5xl font-black leading-[0.96] tracking-normal text-white sm:text-7xl lg:text-[5.4rem]">
               Find Your
               <br />
               <span className="text-[#b9ff22]">Sideline</span>
@@ -380,10 +380,9 @@ export default function CommunitiesPage() {
               Every fan belongs somewhere.
             </p>
             <p className="mt-4 max-w-xl text-base leading-7 text-zinc-300">
-              Sideline Communities bring sports fans, creators, analysts, and
-              friends together in one place to discuss games, make predictions,
-              compete on leaderboards, and build lasting communities around the
-              sports they love.
+              Team communities, creator feeds, skill-based predictions, and
+              leaderboards — built into one sports platform, not a Discord server
+              or sportsbook.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -446,11 +445,11 @@ export default function CommunitiesPage() {
             <br />
             <span className="text-[#b9ff22]">Communities?</span>
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
             {whyItems.map(([title, body]) => (
               <article
                 key={title}
-                className="rounded-lg border border-[#b9ff22]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(185,255,34,0.12),rgba(255,255,255,0.025)_52%,rgba(255,255,255,0.015)_100%)] p-7 text-center shadow-[0_0_34px_rgba(185,255,34,0.1)]"
+                className="rounded-lg border border-[#b9ff22]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(185,255,34,0.12),rgba(255,255,255,0.025)_52%,rgba(255,255,255,0.015)_100%)] p-5 text-center shadow-[0_0_34px_rgba(185,255,34,0.1)] sm:p-7"
               >
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#b9ff22] text-sm font-black text-[#b9ff22]">
                   {title.slice(0, 2).toUpperCase()}
@@ -525,11 +524,11 @@ export default function CommunitiesPage() {
           <h2 className="mb-7 text-center text-3xl font-black text-white">
             Community <span className="text-[#b9ff22]">Features</span>
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-6">
             {featureItems.map(([title, body]) => (
               <article
                 key={title}
-                className="rounded-lg border border-[#b9ff22]/20 bg-[radial-gradient(circle_at_50%_0%,rgba(185,255,34,0.08),rgba(255,255,255,0.025)_60%,rgba(255,255,255,0.015)_100%)] p-6 text-center shadow-[0_0_24px_rgba(185,255,34,0.06)]"
+                className="rounded-lg border border-[#b9ff22]/20 bg-[radial-gradient(circle_at_50%_0%,rgba(185,255,34,0.08),rgba(255,255,255,0.025)_60%,rgba(255,255,255,0.015)_100%)] p-5 text-center shadow-[0_0_24px_rgba(185,255,34,0.06)] sm:p-6"
               >
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-[#b9ff22]/40 text-xs font-black text-[#b9ff22]">
                   {title.slice(0, 2).toUpperCase()}

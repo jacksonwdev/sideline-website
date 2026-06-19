@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sidelinesocials.com"),
   title: "Sideline",
-  description: "Sports communities, creators, and competition in one place.",
+  description: "Sideline is the sports platform for communities, creators, predictions, and competition — in one place.",
   applicationName: "Sideline",
   openGraph: {
     title: "Sideline",
-    description: "Sports communities, creators, and competition in one place.",
+    description: "Sideline is the sports platform for communities, creators, predictions, and competition — in one place.",
     url: "/",
     siteName: "Sideline",
     locale: "en_US",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sideline",
-    description: "Sports communities, creators, and competition in one place.",
+    description: "Sideline is the sports platform for communities, creators, predictions, and competition — in one place.",
     images: ["https://sidelinesocials.com/twitter-image.png"],
   },
   icons: {

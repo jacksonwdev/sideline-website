@@ -65,6 +65,39 @@ body {
   }
 }
 
+@keyframes sideline-glow-float {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(2%, -3%, 0) scale(1.06);
+  }
+}
+
+.motion-glow {
+  animation: sideline-glow-float 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes sideline-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+
+.motion-live {
+  animation: sideline-live-pulse 1.8s ease-in-out infinite;
+}
+
 .motion-enter {
   animation: sideline-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }

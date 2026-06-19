@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Bell,
+  AtSign,
   Check,
   FlaskConical,
   LockKeyhole,
+  MessageCircle,
+  Sparkles,
   Star,
 } from "lucide-react";
 import { WaitlistForm } from "./WaitlistForm";
@@ -13,32 +15,42 @@ import { WaitlistForm } from "./WaitlistForm";
 export const metadata: Metadata = {
   title: "Join the Waitlist | Sideline",
   description:
-    "Join the Sideline waitlist and help shape the future of sports communities.",
+    "Reserve your username, earn founding-member status, and get early access to Sideline before launch.",
   alternates: {
     canonical: "/waitlist",
   },
 };
 
-const benefits = [
+const foundingBenefits = [
   {
-    title: "Early Access",
-    copy: "Be among the first to explore Sideline.",
+    title: "Claim your identity",
+    copy: "Reserve the username you want before launch day.",
+    Icon: AtSign,
+  },
+  {
+    title: "Be there from day one",
+    copy: "Get into communities before the doors open to everyone.",
     Icon: LockKeyhole,
   },
   {
-    title: "Platform Updates",
-    copy: "Get the latest news and feature updates.",
-    Icon: Bell,
-  },
-  {
-    title: "Testing Opportunities",
-    copy: "Help shape the platform through early feedback.",
+    title: "Shape the platform",
+    copy: "Tell us what to build — your input ships before public launch.",
     Icon: FlaskConical,
   },
   {
-    title: "Founding Member Status",
-    copy: "Earn special recognition as an early supporter.",
+    title: "Creator priority",
+    copy: "Front-of-line review when creator applications open.",
+    Icon: Sparkles,
+  },
+  {
+    title: "Permanent founding status",
+    copy: "A founding-member badge that only early joiners can earn.",
     Icon: Star,
+  },
+  {
+    title: "Community influence",
+    copy: "Help set the tone for the rooms and culture that launch first.",
+    Icon: MessageCircle,
   },
 ];
 
@@ -66,36 +78,52 @@ export default function WaitlistPage() {
           />
         </Link>
 
-        <header className="mx-auto mt-10 max-w-3xl text-center">
+        <header className="mx-auto mt-8 max-w-3xl text-center">
           <h1 className="text-5xl font-black leading-none sm:text-7xl">
             Join the <span className="text-[#b9ff22]">Sideline</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
-            Be among the first fans and creators to help shape the future of sports communities.
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-300 sm:mt-6 sm:text-xl">
+            Reserve your username, earn founding-member status, and get early
+            access to communities, creators, picks, and leaderboards — while
+            your input still shapes what we ship first.
           </p>
         </header>
 
-        <div className="mx-auto mt-9 max-w-[690px]">
+        <div className="mx-auto mt-8 max-w-[690px]">
           <WaitlistForm />
         </div>
 
-        <section className="mt-14">
-          <h2 className="text-center text-3xl font-black">Why Join Early?</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map(({ title, copy, Icon }) => (
+        <section className="mt-12 sm:mt-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
+              Why join now
+            </span>
+            <h2 className="mt-3 text-3xl font-black sm:text-4xl">
+              Founding Member Benefits
+            </h2>
+            <p className="mt-4 text-base leading-7 text-zinc-400">
+              Joining now means more than a spot in line. Founding members get
+              reserved usernames, early access, creator priority, and a real say
+              in what we build — perks that won&apos;t exist after launch.
+            </p>
+          </div>
+          <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-3">
+            {foundingBenefits.map(({ title, copy, Icon }) => (
               <article
-                className="border-b border-white/10 pb-6 text-center sm:border-b-0 sm:border-r sm:px-5 sm:last:border-0"
+                className="rounded-lg border border-white/10 bg-[#0b0f12]/85 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:p-6"
                 key={title}
               >
-                <Icon className="mx-auto size-10 text-[#b9ff22]" />
-                <h3 className="mt-5 font-black">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-400">{copy}</p>
+                <span className="grid size-10 place-items-center rounded-xl border border-[#b9ff22]/35 bg-[#b9ff22]/10 text-[#b9ff22] sm:size-12">
+                  <Icon className="size-5 sm:size-6" />
+                </span>
+                <h3 className="mt-3 text-sm font-black text-white sm:mt-5 sm:text-base">{title}</h3>
+                <p className="mt-1.5 text-xs leading-5 text-zinc-400 sm:mt-2 sm:text-sm sm:leading-6">{copy}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mt-16">
+        <section className="mt-12 sm:mt-16">
           <h2 className="text-center text-3xl font-black">Development Status</h2>
           <div className="relative mt-10 grid grid-cols-2 gap-8 sm:grid-cols-5">
             <div className="absolute left-[8%] right-[8%] top-6 hidden border-t border-dashed border-white/25 sm:block" />
