@@ -205,7 +205,7 @@ export function WaitlistForm() {
         disabled={status === "submitting"}
         type="submit"
       >
-        {status === "submitting" ? "Joining..." : "Join the Waitlist"}
+        {status === "submitting" ? "Saving your spot..." : "Become a Founding Member"}
       </button>
       <p className="mt-5 flex items-center justify-center gap-2 text-xs text-zinc-500">
         <LockKeyhole className="size-4" />

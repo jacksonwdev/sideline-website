@@ -33,7 +33,7 @@ export function LegalFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#070a0b]">
       <div className="mx-auto max-w-[1480px] px-5 py-10 sm:px-8 sm:py-14 lg:px-14">
-        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-10">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-14">
           <div className="max-w-sm">
             <Link
               href="/"
@@ -42,7 +42,7 @@ export function LegalFooter() {
             >
               <Image
                 alt="Sideline"
-                className="h-auto w-[150px]"
+                className="h-auto w-[172px]"
                 height={255}
                 src="/assets/sideline-logo-transparent.png"
                 width={1571}
@@ -57,7 +57,7 @@ export function LegalFooter() {
               href="/waitlist"
               className="group mt-5 inline-flex items-center gap-2 text-sm font-black text-[#b9ff22] transition hover:text-[#d0ff53]"
             >
-              Join the Waitlist
+              Join as a Founding Member
               <ArrowRight
                 className="size-4 transition-transform group-hover:translate-x-1"
                 strokeWidth={3}
@@ -65,14 +65,14 @@ export function LegalFooter() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 gap-5 sm:gap-6 lg:contents">
+          <div className="grid grid-cols-3 gap-6 sm:gap-8 lg:contents">
           {footerColumns.map(({ heading, links }) => (
             <nav key={heading} aria-label={heading}>
-              <p className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.18em] text-zinc-300">
+              <p className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.18em] text-white">
                 <span className="size-1.5 rounded-full bg-[#b9ff22] shadow-[0_0_8px_rgba(185,255,34,0.7)]" />
                 {heading}
               </p>
-              <ul className="mt-4 space-y-3 text-sm text-zinc-400">
+              <ul className="mt-4 space-y-3.5 text-sm text-zinc-300">
                 {links.map(([label, href]) => (
                   <li key={label}>
                     <Link

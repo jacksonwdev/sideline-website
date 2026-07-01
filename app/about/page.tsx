@@ -16,6 +16,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { FoundingValueStrip } from "../components/FoundingValueStrip";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
 import { StadiumCta } from "../components/StadiumCta";
@@ -308,17 +309,17 @@ export default function AboutPage() {
                 <span className="block text-[#b9ff22]">sports fans.</span>
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-8 text-zinc-300">
-                Sideline is a sports platform — not a sportsbook, Discord
-                server, or Patreon page. It brings communities, creators,
-                predictions, and competition into one place for fans who are
-                tired of splitting game day across a dozen apps.
+                We love sports communities — the group chats, the hot takes, the
+                creators you trust, the picks you want on record. Sideline is the
+                home we wished existed: communities, creators, predictions, and
+                competition in one place.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   className="motion-action group inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[#b9ff22] px-7 text-sm font-black text-black transition hover:-translate-y-0.5 hover:bg-[#d0ff53]"
                   href="/waitlist"
                 >
-                  Join the Waitlist
+                  Join as a Founding Member
                   <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
                 </Link>
                 <Link
@@ -336,7 +337,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-14 sm:py-16">
+        <section className="py-10 sm:py-12 lg:py-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
               The Problem
@@ -345,10 +346,9 @@ export default function AboutPage() {
               Your sports life is spread across a dozen tabs.
             </h2>
             <p className="mt-4 text-base leading-7 text-zinc-400">
-              The debates, predictions, creators, and rivalries that make sports
-              fun live on platforms that were never built to work together —
-              Discord for chat, Reddit for threads, Patreon for creators, and
-              separate apps for picks.
+              You know the feeling — seventeen tabs open, three group chats
+              blowing up, and still no single place where your people, your
+              picks, and your creators live together.
             </p>
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -381,16 +381,15 @@ export default function AboutPage() {
                   Sports are supposed to bring people together.
                 </p>
                 <p className="max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                  But following a single game often means bouncing between Discord,
-                  Reddit, podcasts, creator feeds, prediction apps, and social
-                  media. We built Sideline because sports fans deserve one home
-                  where communities, creators, picks, and competition actually
-                  connect — not six apps that ignore each other.
+                  Following one game still means bouncing between Discord,
+                  Reddit, podcasts, creator feeds, and prediction apps. We got
+                  tired of that — so we&apos;re building Sideline for fans who
+                  want one home where talk, creators, picks, and competition
+                  actually connect.
                 </p>
                 <p className="max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                  Sideline brings those pieces together so the people you watch
-                  with, the creators you follow, and the picks you make all live
-                  in the same place.
+                  We&apos;re pre-launch, building in the open, and listening to
+                  the people who join early. That&apos;s the point.
                 </p>
                 <p className="text-lg font-black leading-snug text-[#b9ff22] sm:text-2xl">
                   The goal isn&apos;t to replace sports culture. The goal is to
@@ -407,7 +406,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-14 sm:py-16">
+        <section className="py-10 sm:py-12 lg:py-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
               The Solution
@@ -416,10 +415,9 @@ export default function AboutPage() {
               Four things fans love, finally connected.
             </h2>
             <p className="mt-4 text-base leading-7 text-zinc-400">
-              Sideline combines communities, creators, predictions, and
-              competition in one sports platform — so everything about your
-              team lives in the same place, not across Discord servers and
-              separate apps.
+              Four things fans already love — finally in one place. Not a
+              sportsbook. Not a generic chat app. Built for people who actually
+              watch the games.
             </p>
           </div>
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
@@ -443,7 +441,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="grid gap-8 border-t border-white/10 py-12 sm:py-16 lg:grid-cols-[0.8fr_1.2fr]">
+        <section className="grid gap-6 border-t border-white/10 py-10 sm:gap-8 sm:py-12 lg:grid-cols-[0.8fr_1.2fr] lg:py-16">
           <div>
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
               Our mission
@@ -452,9 +450,9 @@ export default function AboutPage() {
               What we&apos;re building toward.
             </h2>
             <p className="mt-5 max-w-md text-base leading-7 text-zinc-300">
-              We&apos;re building Sideline for fans who live for game day and
-              creators who bring them together — in one place, not scattered
-              across Discord, Reddit, and Patreon.
+              Connect fans. Empower creators. Reward the people who show up
+              every week — without pretending we&apos;re further along than we
+              are.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -473,7 +471,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="rounded-lg border border-white/10 bg-[#060809]/95 p-6 sm:p-8">
+        <section className="rounded-lg border border-white/10 bg-[#060809]/95 p-5 sm:p-6 lg:p-8">
           <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
             Where We Are
           </span>
@@ -538,9 +536,13 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <div className="py-6 lg:py-8">
+          <FoundingValueStrip />
+        </div>
+
         <StadiumCta
           body="Reserve your username and join as a founding member. Early access to communities, creators, picks, and leaderboards — plus a direct say in what we build first."
-          buttonLabel="Join the Waitlist"
+          buttonLabel="Join as a Founding Member"
           eyebrow="Before we launch"
           title="Help us build the home sports fans need."
         />

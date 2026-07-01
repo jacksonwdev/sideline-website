@@ -12,6 +12,7 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
+import { FoundingValueStrip } from "../components/FoundingValueStrip";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
 import { StadiumCta } from "../components/StadiumCta";
@@ -19,7 +20,7 @@ import { StadiumCta } from "../components/StadiumCta";
 export const metadata: Metadata = {
   title: "Creators | Sideline",
   description:
-    "Build and monetize a sports community on Sideline with premium channels, referrals, subscriptions, and creator tools.",
+    "Build a home for your fans on Sideline — premium spaces, direct relationships, and early access to creator tools.",
   alternates: {
     canonical: "/creators",
   },
@@ -27,9 +28,9 @@ export const metadata: Metadata = {
 
 const creatorBenefits = [
   ["community", "Own the community", "Create channels, prediction rooms, and premium spaces for your audience."],
-  ["money", "Monetize your audience", "Earn from premium community subscriptions and referral-driven growth."],
+  ["money", "Build premium spaces", "Offer members-only rooms and creator-led experiences — when tools launch."],
   ["bolt", "Keep fans engaged", "Give your audience a place to compete, talk, and participate every day."],
-  ["chart", "Track what works", "See member growth, engagement, subscriptions, and referral performance."],
+  ["chart", "See what resonates", "Understand what your community cares about through built-in tools."],
 ];
 
 const communityTools = [
@@ -42,9 +43,9 @@ const communityTools = [
 ];
 
 const earnItems = [
-  ["1", "Premium Communities", "Fans subscribe for access to premium channels, exclusive content, and more."],
-  ["2", "Referral Rewards", "Earn a one-time reward when referred users make their first purchase."],
-  ["3", "Recurring Revenue Share", "Earn a percentage of every subscription from your community."],
+  ["1", "Premium Communities", "Create members-only spaces for the fans who want more from you."],
+  ["2", "Direct Relationships", "Build closer ties with your audience — not a one-way feed."],
+  ["3", "Creator Tools Early", "Get access to creator features before they open to everyone."],
 ];
 
 const teamRoles = [
@@ -171,9 +172,9 @@ function TeamRoleIcon({ role }: Readonly<{ role: string }>) {
 
 function CreatorCommandCenter() {
   const metrics = [
-    ["Your community", "Members"],
-    ["Premium tiers", "Subscriptions"],
-    ["Creator payouts", "Revenue"],
+    ["Your community", "Active fans"],
+    ["Premium tiers", "Member spaces"],
+    ["Creator tools", "Coming soon"],
   ];
 
   return (
@@ -228,9 +229,9 @@ function CreatorCommandCenter() {
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#b9ff22]">
-                  Community growth
+                  Community activity
                 </p>
-                <h3 className="mt-2 text-lg font-black">Engagement is climbing</h3>
+                <h3 className="mt-2 text-lg font-black">Sample activity</h3>
               </div>
               <span className="rounded-md bg-[#b9ff22]/10 px-2.5 py-1.5 text-[10px] font-black text-[#b9ff22]">
                 30 days
@@ -287,7 +288,7 @@ function CreatorCommandCenter() {
                   This month
                 </span>
               </div>
-              <p className="mt-5 text-[10px] font-bold text-zinc-500">Creator earnings</p>
+              <p className="mt-5 text-[10px] font-bold text-zinc-500">Premium spaces</p>
               <p className="mt-1 text-xl font-black">Your dashboard</p>
               <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/8">
                 <div className="h-full w-[76%] bg-[#b9ff22]" />
@@ -361,21 +362,21 @@ export default function CreatorsPage() {
               Creators
             </HeroBadge>
             <h1 className="max-w-3xl text-5xl font-black leading-[1.01] text-white sm:text-6xl lg:text-[4.7rem]">
-              Build your sports community.
+              Build your community.
               <br />
-              <span className="text-[#b9ff22]">Get paid when it grows.</span>
+              <span className="text-[#b9ff22]">Own the relationship.</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-300">
-              Sideline gives sports creators a home for their fans — communities,
-              predictions, and competition together, not a Patreon-style feed
-              on its own.
+              Build a home for your fans — game-day rooms, premium spaces, and
+              direct relationships. Access creator tools early and grow alongside
+              the platform.
             </p>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/waitlist"
                 className="motion-action group inline-flex h-14 items-center justify-center gap-3 whitespace-nowrap rounded-lg bg-[#b9ff22] px-6 text-sm font-black text-black shadow-[0_0_36px_rgba(185,255,34,0.28)] transition hover:-translate-y-0.5 hover:bg-[#d0ff53]"
               >
-                Become a Creator
+                Join as a Founding Member
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
               <Link
@@ -609,10 +610,10 @@ export default function CreatorsPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_92%_8%,rgba(185,255,34,0.12),transparent_28%),linear-gradient(145deg,rgba(255,255,255,0.035),transparent_42%)]" />
             <div className="relative z-10 mb-6">
               <div>
-                <h2 className="text-3xl font-black text-white">How Creators Earn</h2>
+                <h2 className="text-3xl font-black text-white">Creator Monetization Options</h2>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">
-                  Turn community activity into recurring upside with premium
-                  access, referrals, and creator revenue share.
+                  Monetization tools for creators who build engaged communities —
+                  premium access, referrals, and early creator features.
                 </p>
               </div>
             </div>
@@ -636,7 +637,7 @@ export default function CreatorsPage() {
                       </div>
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-[0.12em] text-zinc-500">
-                          {number === "1" ? "Subscriptions" : number === "2" ? "Growth" : "Revenue"}
+                          {number === "1" ? "Premium" : number === "2" ? "Community" : "Tools"}
                         </p>
                         <p className="mt-1 text-base font-black text-[#b9ff22]">
                           {number === "1" ? "Premium" : number === "2" ? "Referrals" : "Share"}
@@ -651,10 +652,10 @@ export default function CreatorsPage() {
                   *
                 </div>
                 <div>
-                  <h3 className="font-black text-[#b9ff22]">Early creator terms</h3>
+                  <h3 className="font-black text-[#b9ff22]">Early creator access</h3>
                   <p className="mt-1 text-sm font-semibold leading-6 text-zinc-200">
-                    Founding creators get preferred revenue terms during
-                    Sideline&apos;s early launch.
+                    Founding creators get early access to tools and a direct
+                    line to the team while we&apos;re building.
                   </p>
                 </div>
               </div>
@@ -668,8 +669,8 @@ export default function CreatorsPage() {
             <div className="relative z-10">
               <h2 className="text-3xl font-black text-white">Built for Creator Teams</h2>
               <p className="mt-4 max-w-lg text-sm leading-6 text-zinc-300">
-                Add your team, assign roles, and split revenue with co-hosts,
-                analysts, and moderators.
+                Add your team, assign roles, and collaborate with co-hosts,
+                analysts, and moderators in one community.
               </p>
             </div>
             <div className="relative z-10 mt-7 grid max-w-[620px] gap-3 sm:grid-cols-3">
@@ -701,10 +702,10 @@ export default function CreatorsPage() {
               </span>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.12em] text-zinc-500">
-                  Flexible payouts
+                  Shared roles
                 </p>
                 <p className="mt-1 text-sm font-black text-[#b9ff22]">
-                  Split revenue with your team
+                  Collaborate with your team
                 </p>
               </div>
             </div>
@@ -712,8 +713,8 @@ export default function CreatorsPage() {
           <article className="flex flex-col rounded-lg border border-white/10 bg-[#07090b]/95 p-6 shadow-[0_22px_70px_rgba(0,0,0,0.28)]">
             <div className="mb-5 flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-black text-white">Team Revenue Split</h3>
-                <p className="mt-1 text-[10px] font-semibold text-zinc-500">Monthly allocation</p>
+                <h3 className="text-sm font-black text-white">Example team roles</h3>
+                <p className="mt-1 text-[10px] font-semibold text-zinc-500">Sample layout</p>
               </div>
               <span className="rounded-full border border-[#b9ff22]/25 bg-[#b9ff22]/8 px-3 py-1 text-[10px] font-black text-[#b9ff22]">
                 100% assigned
@@ -806,7 +807,7 @@ export default function CreatorsPage() {
                     <p className="text-[9px] font-black uppercase tracking-wide text-zinc-500">
                       Earnings dashboard
                     </p>
-                    <p className="mt-1 text-base font-black text-white">Track daily revenue</p>
+                    <p className="mt-1 text-base font-black text-white">Sample dashboard</p>
                   </div>
                   <ChartNoAxesColumnIncreasing className="size-5 text-[#b9ff22]" />
                 </div>
@@ -824,10 +825,14 @@ export default function CreatorsPage() {
           </article>
         </section>
 
+        <div className="py-6 lg:py-8">
+          <FoundingValueStrip />
+        </div>
+
         <div id="apply">
           <StadiumCta
             body="Sideline is just getting started. Apply for early access and help shape the future of creator-led sports communities."
-            buttonLabel="Become a Creator"
+            buttonLabel="Join as a Founding Member"
             eyebrow="Build with us"
             title="Ready to bring your fans to the Sideline?"
           />

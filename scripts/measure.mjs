@@ -3,7 +3,7 @@ import { setTimeout as sleep } from "node:timers/promises";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const PORT = 9344;
-const BASE = "http://localhost:3253";
+const BASE = "http://localhost:3280";
 const PROFILE = process.env.TEMP + "\\sl-cdp-measure";
 
 const PAGES = [

@@ -18,6 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { HeroBadge } from "../components/HeroBadge";
+import { FoundingValueStrip } from "../components/FoundingValueStrip";
 import { SiteHeader } from "../components/SiteHeader";
 import { StadiumCta } from "../components/StadiumCta";
 
@@ -59,6 +60,55 @@ function CheckItem({ children }: { children: React.ReactNode }) {
       </span>
       {children}
     </li>
+  );
+}
+
+function CompetitionPreviewPanel() {
+  const metrics = [
+    { label: "Current Rank", value: "#12", Icon: Trophy, note: "Community board" },
+    { label: "Prediction Accuracy", value: "Strong record", Icon: Target, note: "Sample profile" },
+    { label: "Current Streak", value: "Active", Icon: Flame, note: "Keep it going" },
+    { label: "Community Standing", value: "Rising", Icon: Users, note: "This week" },
+    { label: "Reputation Tier", value: "Analyst", Icon: Medal, note: "Next: Expert" },
+  ];
+
+  return (
+    <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[linear-gradient(145deg,rgba(17,20,21,.98),rgba(4,5,6,.98))] shadow-2xl shadow-black/50">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#a8ff00]/80 to-transparent" />
+      <div className="flex items-center justify-between border-b border-white/8 px-5 py-4">
+        <div>
+          <span className="text-[10px] font-black uppercase tracking-[0.18em] text-zinc-500">
+            Competition preview
+          </span>
+          <p className="mt-1 text-lg font-black text-white">Your standing at a glance</p>
+        </div>
+        <span className="rounded-md border border-[#a8ff00]/20 bg-[#a8ff00]/5 px-3 py-1 text-xs font-bold text-[#a8ff00]">
+          Sample
+        </span>
+      </div>
+      <div className="grid gap-px bg-white/8 sm:grid-cols-2 lg:grid-cols-1">
+        {metrics.map(({ label, value, Icon, note }) => (
+          <div
+            key={label}
+            className="flex items-center gap-4 bg-[#0a0c0b]/95 px-5 py-4"
+          >
+            <span className="grid size-11 shrink-0 place-items-center rounded-lg border border-[#a8ff00]/25 bg-[#a8ff00]/8 text-[#a8ff00]">
+              <Icon className="size-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-zinc-500">{label}</p>
+              <p className="text-base font-black text-white">{value}</p>
+              <p className="text-[10px] text-zinc-600">{note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-white/8 px-5 py-3">
+        <p className="text-[10px] leading-5 text-zinc-500">
+          Skill-based competition — track rank, accuracy, streaks, and reputation in one place.
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -233,7 +283,7 @@ export default function CompetitionPage() {
                 className="motion-action group inline-flex items-center gap-3 rounded-md bg-[#a8ff00] px-6 py-3.5 text-sm font-black text-black transition hover:-translate-y-0.5 hover:bg-[#b9ff36]"
                 href="/waitlist"
               >
-                Start competing
+                Join as a Founding Member
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
               <Link
@@ -259,28 +309,10 @@ export default function CompetitionPage() {
               ))}
             </div>
           </div>
-          <div className="motion-enter-late relative hidden min-w-0 w-full max-w-[800px] justify-self-end lg:block lg:pl-4">
-            <div className="absolute -inset-16 bg-[#a8ff00]/10 blur-3xl" />
+          <div className="motion-enter-late relative min-w-0 w-full max-w-[520px] justify-self-end lg:max-w-[560px] lg:pl-4">
+            <div className="absolute -inset-10 bg-[#a8ff00]/10 blur-3xl lg:-inset-16" />
             <div className="relative">
-              <RankingTable />
-              <div className="absolute -left-7 bottom-12 flex items-center gap-3 rounded-xl border border-[#a8ff00]/30 bg-[#0b0f0a]/95 px-4 py-3 shadow-[0_22px_55px_rgba(0,0,0,0.55)] backdrop-blur-md">
-                <span className="grid size-10 place-items-center rounded-lg bg-[#a8ff00]/12 text-[#a8ff00]">
-                  <Flame className="size-5" />
-                </span>
-                <div>
-                  <p className="text-sm font-black text-white">Win streaks</p>
-                  <p className="text-[10px] text-zinc-500">Build it pick by pick</p>
-                </div>
-              </div>
-              <div className="absolute -right-5 top-10 flex items-center gap-3 rounded-xl border border-cyan-400/25 bg-[#0b0f0a]/95 px-4 py-3 shadow-[0_22px_55px_rgba(0,0,0,0.55)] backdrop-blur-md">
-                <span className="grid size-10 place-items-center rounded-lg bg-cyan-400/12 text-cyan-300">
-                  <Swords className="size-5" />
-                </span>
-                <div>
-                  <p className="text-sm font-black text-white">1v1 challenges</p>
-                  <p className="text-[10px] text-zinc-500">Call out any rival</p>
-                </div>
-              </div>
+              <CompetitionPreviewPanel />
             </div>
           </div>
         </div>
@@ -290,7 +322,7 @@ export default function CompetitionPage() {
         <div className="pointer-events-none absolute -left-32 top-[15%] size-80 bg-[#a8ff00]/5 blur-[110px]" />
         <div className="pointer-events-none absolute -right-40 top-[55%] size-96 bg-cyan-500/5 blur-[130px]" />
         <section
-          className="relative overflow-hidden rounded-lg border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,.035),rgba(168,255,0,.025))] p-6 sm:p-8"
+          className="relative overflow-hidden rounded-lg border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,.035),rgba(168,255,0,.025))] p-5 sm:p-6 lg:p-8"
           id="ways-to-compete"
         >
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#a8ff00]/70 to-transparent" />
@@ -332,7 +364,7 @@ export default function CompetitionPage() {
                 <ul className="mt-5 space-y-3">
                   <CheckItem>Track accuracy</CheckItem>
                   <CheckItem>Climb the ranks</CheckItem>
-                  <CheckItem>Earn rewards</CheckItem>
+                  <CheckItem>Build your reputation</CheckItem>
                 </ul>
               </div>
               <div className="relative hidden self-center sm:block">
@@ -416,7 +448,7 @@ export default function CompetitionPage() {
             </span>
             <h2 className="mt-4 text-3xl font-black sm:text-4xl">Challenge Anyone</h2>
             <p className="mt-4 max-w-sm leading-7 text-zinc-400">
-              Create private prediction battles with friends or other fans.
+              Create private skill-based challenges with friends or other fans.
             </p>
             <ul className="mt-7 space-y-3">
               <CheckItem>Bragging rights</CheckItem>
@@ -448,8 +480,8 @@ export default function CompetitionPage() {
                 <button className="cursor-default rounded bg-[#a8ff00] py-3 text-black disabled:opacity-100" disabled type="button">BOS</button>
               </div>
               <div className="mt-5 flex justify-between border-t border-white/8 pt-4 text-xs">
-                <span className="text-zinc-500">Entry <strong className="block text-white">Free</strong></span>
-                <span className="text-right text-zinc-500">Ends in <strong className="block text-white">2h 12m</strong></span>
+                <span className="text-zinc-500">Skill-based <strong className="block text-white">Free picks</strong></span>
+                <span className="text-right text-zinc-500">Example <strong className="block text-white">Sample matchup</strong></span>
               </div>
             </div>
           </div>
@@ -467,7 +499,7 @@ export default function CompetitionPage() {
             </div>
             <div className="mt-6 space-y-3">
               {picks.map((pick) => (
-                <div className="grid cursor-default grid-cols-[1fr_auto_auto] items-center gap-4 rounded-lg border border-white/8 bg-white/[0.025] p-4" key={pick.matchup}>
+                <div className="grid min-w-0 cursor-default grid-cols-1 items-center gap-3 rounded-lg border border-white/8 bg-white/[0.025] p-4 sm:grid-cols-[1fr_auto_auto] sm:gap-4" key={pick.matchup}>
                   <div>
                     <span className="text-[10px] font-black uppercase text-[#a8ff00]">{pick.league}</span>
                     <h3 className="mt-1 font-bold">{pick.matchup}</h3>
@@ -561,11 +593,15 @@ export default function CompetitionPage() {
           </div>
         </section>
 
+        <div className="py-6 lg:py-8">
+          <FoundingValueStrip />
+        </div>
+
         <StadiumCta
-          body="Join the waitlist and be among the first fans to make picks, challenge rivals, and climb the Sideline rankings."
-          buttonLabel="Start Competing"
-          eyebrow="Your run starts here"
-          title="Ready to put your knowledge to the test?"
+          body="Skill-based predictions, leaderboards, and friendly competition — not betting. Join as a founding member and compete from day one."
+          buttonLabel="Join as a Founding Member"
+          eyebrow="Before we launch"
+          title="Build your reputation on the Sideline."
         />
       </div>
     </main>

@@ -96,8 +96,9 @@ export default function ContactPage() {
               We&apos;d love to hear from you.
             </p>
             <p className="mt-4 max-w-xl leading-7 text-zinc-400 sm:max-w-2xl">
-              Whether you&apos;re a fan, a creator, or a potential partner, send
-              us a note and we&apos;ll route it to the right person.
+              Whether you&apos;re a fan, creator, or potential partner — send a
+              note and we&apos;ll route it to the right person. We typically
+              respond within a few business days.
             </p>
           </div>
 

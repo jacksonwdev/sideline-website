@@ -10,12 +10,20 @@ import {
   Sparkles,
   Star,
 } from "lucide-react";
+import { FoundingValueStrip } from "../components/FoundingValueStrip";
 import { WaitlistForm } from "./WaitlistForm";
+
+const whatHappensNext = [
+  { step: "1", title: "Join Waitlist", copy: "Reserve your spot as a founding member." },
+  { step: "2", title: "Receive Early Access Invite", copy: "Get notified when your invite is ready." },
+  { step: "3", title: "Participate In Community Testing", copy: "Help shape features before public launch." },
+  { step: "4", title: "Platform Launch", copy: "Walk in with founding status on day one." },
+];
 
 export const metadata: Metadata = {
   title: "Join the Waitlist | Sideline",
   description:
-    "Reserve your username, earn founding-member status, and get early access to Sideline before launch.",
+    "Claim your spot as a founding member — reserve your username, earn permanent status, and help shape Sideline before launch.",
   alternates: {
     canonical: "/waitlist",
   },
@@ -24,32 +32,32 @@ export const metadata: Metadata = {
 const foundingBenefits = [
   {
     title: "Claim your identity",
-    copy: "Reserve the username you want before launch day.",
+    copy: "Lock in the username that becomes your reputation on Sideline.",
     Icon: AtSign,
   },
   {
     title: "Be there from day one",
-    copy: "Get into communities before the doors open to everyone.",
+    copy: "Walk into communities before the crowd and help set the culture.",
     Icon: LockKeyhole,
   },
   {
     title: "Shape the platform",
-    copy: "Tell us what to build — your input ships before public launch.",
+    copy: "Tell us what to build — founding members influence what ships first.",
     Icon: FlaskConical,
   },
   {
     title: "Creator priority",
-    copy: "Front-of-line review when creator applications open.",
+    copy: "Creators who join early get reviewed first when tools open.",
     Icon: Sparkles,
   },
   {
     title: "Permanent founding status",
-    copy: "A founding-member badge that only early joiners can earn.",
+    copy: "A badge that proves you were here before launch — earned once, kept forever.",
     Icon: Star,
   },
   {
     title: "Community influence",
-    copy: "Help set the tone for the rooms and culture that launch first.",
+    copy: "Help decide which rooms launch first and what they feel like.",
     Icon: MessageCircle,
   },
 ];
@@ -79,32 +87,88 @@ export default function WaitlistPage() {
         </Link>
 
         <header className="mx-auto mt-8 max-w-3xl text-center">
-          <h1 className="text-5xl font-black leading-none sm:text-7xl">
-            Join the <span className="text-[#b9ff22]">Sideline</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#b9ff22]/30 bg-[#b9ff22]/8 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.16em] text-[#b9ff22]">
+            Founding access open
+          </span>
+          <h1 className="mt-5 text-5xl font-black leading-none sm:text-7xl">
+            Claim your spot on the{" "}
+            <span className="text-[#b9ff22]">Sideline</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-300 sm:mt-6 sm:text-xl">
-            Reserve your username, earn founding-member status, and get early
-            access to communities, creators, picks, and leaderboards — while
-            your input still shapes what we ship first.
+            You&apos;re not signing up for updates — you&apos;re joining early.
+            Reserve your username, earn founding-member status, and help shape
+            the communities, creators, and competition we&apos;re building
+            together.
           </p>
         </header>
+
+        <p className="mx-auto mt-6 max-w-lg text-center text-sm leading-6 text-zinc-500">
+          Sideline is in active development. Founding members get in first and
+          influence what launches — before the public ever sees it.
+        </p>
 
         <div className="mx-auto mt-8 max-w-[690px]">
           <WaitlistForm />
         </div>
 
-        <section className="mt-12 sm:mt-16">
+        <section className="mx-auto mt-10 max-w-4xl sm:mt-12">
+          <h2 className="text-center text-2xl font-black uppercase tracking-wide sm:text-3xl">
+            What Happens Next?
+          </h2>
+
+          <div className="relative mt-8 hidden sm:mt-10 sm:block">
+            <div className="absolute left-[10%] right-[10%] top-6 border-t border-dashed border-[#b9ff22]/35" />
+            <div className="grid grid-cols-4 gap-3">
+              {whatHappensNext.map(({ step, title, copy }) => (
+                <article
+                  key={title}
+                  className="relative rounded-lg border border-white/10 bg-[#0b0f12]/85 p-4 pt-10 text-center"
+                >
+                  <span className="absolute left-1/2 top-0 z-10 grid size-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#b9ff22]/40 bg-[#0b0f12] text-sm font-black text-[#b9ff22]">
+                    {step}
+                  </span>
+                  <h3 className="text-sm font-black text-white">{title}</h3>
+                  <p className="mt-2 text-xs leading-5 text-zinc-400">{copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 space-y-0 sm:hidden">
+            {whatHappensNext.map(({ step, title, copy }, index) => (
+              <div key={title}>
+                <article className="flex items-start gap-4 rounded-lg border border-white/10 bg-[#0b0f12]/85 p-4">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[#b9ff22]/40 bg-[#070a0b] text-sm font-black text-[#b9ff22]">
+                    {step}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-black text-white">{title}</h3>
+                    <p className="mt-1.5 text-xs leading-5 text-zinc-400">{copy}</p>
+                  </div>
+                </article>
+                {index < whatHappensNext.length - 1 ? (
+                  <p className="py-2 text-center text-lg text-[#b9ff22]/60" aria-hidden="true">
+                    ↓
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10 sm:mt-12">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
-              Why join now
+              Why founding members matter
             </span>
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-              Founding Member Benefits
+              More than a waitlist spot
             </h2>
             <p className="mt-4 text-base leading-7 text-zinc-400">
-              Joining now means more than a spot in line. Founding members get
-              reserved usernames, early access, creator priority, and a real say
-              in what we build — perks that won&apos;t exist after launch.
+              Everyone who joins after launch gets the product. Founding members
+              get something different — identity, status, influence, and a place
+              in the community before it exists. These perks are only available
+              while we&apos;re building.
             </p>
           </div>
           <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-3">
@@ -123,7 +187,11 @@ export default function WaitlistPage() {
           </div>
         </section>
 
-        <section className="mt-12 sm:mt-16">
+        <div className="mx-auto mt-10 max-w-4xl sm:mt-12">
+          <FoundingValueStrip />
+        </div>
+
+        <section className="mt-10 sm:mt-12">
           <h2 className="text-center text-3xl font-black">Development Status</h2>
           <div className="relative mt-10 grid grid-cols-2 gap-8 sm:grid-cols-5">
             <div className="absolute left-[8%] right-[8%] top-6 hidden border-t border-dashed border-white/25 sm:block" />

@@ -3,13 +3,15 @@ import Link from "next/link";
 import {
   ArrowRight,
   AtSign,
+  Award,
+  BarChart3,
   ChevronRight,
   Crown,
   Eye,
   Heart,
   House,
+  Lock,
   MessageCircle,
-  Radio,
   Rocket,
   ShieldCheck,
   ShieldOff,
@@ -21,6 +23,7 @@ import {
   Zap,
 } from "lucide-react";
 import { HeroBadge } from "./components/HeroBadge";
+import { FoundingValueStrip } from "./components/FoundingValueStrip";
 import { SiteHeader } from "./components/SiteHeader";
 import { StadiumCta } from "./components/StadiumCta";
 
@@ -49,7 +52,7 @@ const pillars = [
   {
     Icon: Trophy,
     title: "Competition",
-    body: "Climb leaderboards with transparent win rates.",
+    body: "Climb leaderboards and build a skill-based reputation.",
   },
 ];
 
@@ -57,33 +60,52 @@ const stats = [
   ["4-in-1", "Communities, creators, picks, competition"],
   ["24/7", "Always-on game-day rooms"],
   ["Free", "To join and start competing"],
-  ["Founding", "Early access + member status"],
+  ["Founding", "Your name. Your status. Before launch."],
 ];
 
 const howItWorks = [
   {
-    step: "01",
+    step: "1",
     Icon: Users,
-    title: "Join your communities",
-    body: "Find rooms for the teams, sports, and creators you already follow.",
+    title: "Join a Community",
+    body: "Find fans, creators, or teams you care about.",
   },
   {
-    step: "02",
+    step: "2",
     Icon: TrendingUp,
-    title: "Make your predictions",
-    body: "Lock in picks before every game and put your takes on record.",
+    title: "Make Predictions",
+    body: "Share picks and reactions before games.",
   },
   {
-    step: "03",
+    step: "3",
     Icon: Trophy,
-    title: "Climb the leaderboards",
-    body: "Build streaks, track accuracy, and earn your spot at the top.",
+    title: "Build Reputation",
+    body: "Earn streaks, rankings, badges, and credibility.",
   },
   {
-    step: "04",
-    Icon: Crown,
-    title: "Unlock premium access",
-    body: "Subscribe to creator communities for exclusive feeds and drops.",
+    step: "4",
+    Icon: Lock,
+    title: "Unlock More",
+    body: "Gain access to creator rooms, premium spaces, and special community features.",
+  },
+];
+
+const builtInPublic = [
+  {
+    title: "HONEST POSITIONING",
+    body: "Not a sportsbook. No wagers. Community-driven competition.",
+  },
+  {
+    title: "EARLY ACCESS",
+    body: "Founding members help shape what gets built.",
+  },
+  {
+    title: "COMMUNITY FIRST",
+    body: "Fans, creators, communities, and competition together.",
+  },
+  {
+    title: "LAUNCH STATUS",
+    body: "Website complete. Platform in development.",
   },
 ];
 
@@ -118,27 +140,27 @@ const foundingPerks = [
   {
     Icon: AtSign,
     title: "Claim your identity",
-    body: "Reserve the username you want before anyone else can.",
+    body: "Lock in the username that becomes your reputation on Sideline.",
   },
   {
     Icon: Star,
     title: "Founding member status",
-    body: "A permanent badge that only early members can earn.",
+    body: "A permanent badge — proof you were here before launch day.",
   },
   {
     Icon: Users,
     title: "Early community access",
-    body: "Step into rooms before they open to the public.",
+    body: "Walk into rooms before the crowd arrives and help set the tone.",
   },
   {
     Icon: Rocket,
     title: "Shape the platform",
-    body: "Your feedback decides what we ship first.",
+    body: "Your voice influences what we build before the public gets in.",
   },
   {
     Icon: ShieldCheck,
     title: "Creator priority",
-    body: "Front-of-line review when creator tools open.",
+    body: "Creators who join early get reviewed first when tools open.",
   },
 ];
 
@@ -184,17 +206,19 @@ function SectionHeading({
   copy,
   center = false,
 }: Readonly<{
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   copy?: string;
   center?: boolean;
 }>) {
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
-      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
-        {eyebrow}
-      </span>
-      <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">
+      {eyebrow ? (
+        <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
+          {eyebrow}
+        </span>
+      ) : null}
+      <h2 className={`${eyebrow ? "mt-3" : ""} text-3xl font-black leading-tight text-white sm:text-4xl`}>
         {title}
       </h2>
       {copy ? (
@@ -213,130 +237,196 @@ function PreviewPill({ children = "Product preview" }: { children?: React.ReactN
   );
 }
 
-function HeroEcosystem() {
+function HeroProductComposite() {
+  const chatMessages = [
+    { user: "MG", text: "Mahomes on 3rd down — who else is nervous?", time: "7:42 PM" },
+    { user: "SK", text: "Bills D is showing up. This is a war.", time: "7:43 PM" },
+    { user: "JP", text: "Locked KC -3 before kickoff. Let's go.", time: "7:44 PM" },
+  ];
+
   return (
-    <div className="relative mx-auto w-full max-w-[540px]">
-      <div className="motion-glow pointer-events-none absolute -inset-10 bg-[radial-gradient(circle_at_50%_46%,rgba(185,255,34,0.2),transparent_62%)] blur-2xl" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 size-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#b9ff22]/[0.08]" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 size-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#b9ff22]/[0.06]" />
-
-      <div className="relative aspect-[1/1.06]">
-        <svg
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 100 100"
-        >
-          <g stroke="#b9ff22" strokeOpacity="0.28" strokeWidth="0.35">
-            <line x1="50" y1="50" x2="26" y2="16" />
-            <line x1="50" y1="50" x2="74" y2="16" />
-            <line x1="50" y1="50" x2="26" y2="84" />
-            <line x1="50" y1="50" x2="74" y2="84" />
-          </g>
-          <g fill="#b9ff22">
-            <circle cx="26" cy="16" r="0.7" />
-            <circle cx="74" cy="16" r="0.7" />
-            <circle cx="26" cy="84" r="0.7" />
-            <circle cx="74" cy="84" r="0.7" />
-          </g>
-        </svg>
-
-        <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 text-center">
-          <div className="relative grid size-[88px] place-items-center rounded-2xl border border-[#b9ff22]/45 bg-[#0b1104]/95 shadow-[0_0_55px_rgba(185,255,34,0.3)] backdrop-blur-md">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#b9ff22] to-transparent" />
-            <span
-              aria-label="Sideline"
-              className="block h-8 w-9 bg-[url('/assets/sideline-logo-transparent.png')] bg-no-repeat"
-              role="img"
-              style={{ backgroundPosition: "left center", backgroundSize: "210px 34px" }}
-            />
-          </div>
-          <span className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-[#b9ff22]/25 bg-[#070a0b]/85 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.16em] text-[#b9ff22]">
-            One home
-          </span>
-        </div>
-
-        <article className="absolute left-0 top-0 z-10 w-[47%] rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1.5 text-[11px] font-black text-white">
-              <span className="grid size-6 place-items-center rounded-md border border-[#b9ff22]/30 bg-[#b9ff22]/10 text-[#b9ff22]">
-                <Users className="size-3.5" />
-              </span>
-              Communities
+    <>
+      <div className="relative hidden w-full lg:block">
+        <div className="motion-glow pointer-events-none absolute -inset-8 bg-[radial-gradient(circle_at_50%_50%,rgba(185,255,34,0.16),transparent_62%)] blur-2xl" />
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(155deg,rgba(11,15,18,0.98),rgba(4,6,7,0.98))] shadow-[0_28px_80px_rgba(0,0,0,0.55)]">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#b9ff22]/70 to-transparent" />
+          <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
+            <span className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#b9ff22]">
+              <span className="motion-live size-1.5 rounded-full bg-[#b9ff22] shadow-[0_0_8px_#b9ff22]" />
+              Sideline preview
             </span>
-            <Radio className="size-3 text-[#b9ff22]" />
+            <PreviewPill>Product preview</PreviewPill>
           </div>
-          <p className="mt-2.5 text-[11px] font-bold text-zinc-100">Chiefs vs Bills</p>
-          <p className="text-[9px] text-zinc-500">Live game-day room</p>
-        </article>
+          <div className="grid grid-cols-12 gap-3 p-4">
+            <article className="col-span-7 row-span-2 flex min-h-[320px] flex-col rounded-xl border border-white/10 bg-[#070a0b]/90">
+              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                <span className="flex items-center gap-2 text-xs font-black text-white">
+                  <MessageCircle className="size-4 text-[#b9ff22]" />
+                  Community chat
+                </span>
+                <span className="text-[9px] font-bold uppercase tracking-wide text-zinc-500">Chiefs vs Bills · Live</span>
+              </div>
+              <div className="flex-1 space-y-3 overflow-hidden px-4 py-3">
+                {chatMessages.map((msg) => (
+                  <div key={msg.text} className="rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-black text-[#b9ff22]">{msg.user}</span>
+                      <span className="text-[9px] text-zinc-600">{msg.time}</span>
+                    </div>
+                    <p className="mt-1 text-xs leading-5 text-zinc-300">{msg.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-white/10 px-4 py-2.5">
+                <div className="rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-[10px] text-zinc-500">
+                  Join the conversation…
+                </div>
+              </div>
+            </article>
 
-        <article className="absolute right-0 top-0 z-10 w-[47%] rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
+            <article className="col-span-5 rounded-xl border border-white/10 bg-[#070a0b]/90 p-4">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-2 text-xs font-black text-white">
+                  <TrendingUp className="size-4 text-[#b9ff22]" />
+                  Prediction feed
+                </span>
+                <span className="text-[8px] font-black uppercase text-zinc-600">Example</span>
+              </div>
+              <p className="mt-2 text-[11px] font-bold text-zinc-200">KC vs BUF — Who wins?</p>
+              <div className="mt-3 space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-8 text-[10px] font-bold text-zinc-400">KC</span>
+                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
+                    <span className="block h-full w-[68%] rounded-full bg-[#b9ff22]" />
+                  </span>
+                  <span className="text-[10px] font-black text-[#b9ff22]">68%</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-8 text-[10px] font-bold text-zinc-400">BUF</span>
+                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
+                    <span className="block h-full w-[32%] rounded-full bg-zinc-600" />
+                  </span>
+                  <span className="text-[10px] font-black text-zinc-400">32%</span>
+                </div>
+              </div>
+              <div className="mt-3 rounded-lg border border-[#b9ff22]/20 bg-[#b9ff22]/5 px-3 py-2 text-[10px] font-bold text-[#b9ff22]">
+                Your pick: KC — locked pregame
+              </div>
+            </article>
+
+            <article className="col-span-5 rounded-xl border border-white/10 bg-[#070a0b]/90 p-4">
+              <div className="flex items-center gap-2 text-xs font-black text-white">
+                <Sparkles className="size-4 text-[#b9ff22]" />
+                Creator room
+              </div>
+              <div className="mt-3 flex items-center gap-3">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[#b9ff22]/40 bg-[radial-gradient(circle_at_35%_25%,#344b10,#101703_70%)] text-xs font-black text-[#b9ff22]">
+                  CD
+                </span>
+                <div className="min-w-0">
+                  <p className="flex items-center gap-1 text-sm font-black text-white">
+                    Coach D
+                    <ShieldCheck className="size-3.5 text-[#b9ff22]" />
+                  </p>
+                  <p className="text-[10px] text-zinc-500">Film breakdown · Members only</p>
+                </div>
+              </div>
+              <p className="mt-3 rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2 text-[11px] leading-5 text-zinc-400">
+                &ldquo;Watch the red-zone look on 3rd &amp; 2 — that&apos;s the whole game.&rdquo;
+              </p>
+            </article>
+
+            <article className="col-span-5 rounded-xl border border-white/10 bg-[#070a0b]/90 p-3">
+              <div className="flex items-center justify-between px-1">
+                <span className="flex items-center gap-2 text-xs font-black text-white">
+                  <BarChart3 className="size-4 text-[#b9ff22]" />
+                  Leaderboard
+                </span>
+                <PreviewPill>Sample</PreviewPill>
+              </div>
+              <div className="mt-2 space-y-1.5">
+                {sampleLeaderboard.slice(0, 3).map((leader) => (
+                  <div
+                    key={leader.label}
+                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 ${
+                      leader.rank === 1 ? "bg-[#b9ff22]/[0.08]" : ""
+                    }`}
+                  >
+                    <span
+                      className={`grid size-6 place-items-center text-[10px] font-black ${
+                        leader.rank === 1
+                          ? "rounded-full bg-[#b9ff22] text-black"
+                          : "text-zinc-500"
+                      }`}
+                    >
+                      {leader.rank}
+                    </span>
+                    <span className="flex-1 truncate text-[11px] font-bold text-zinc-200">{leader.label}</span>
+                    {leader.rank === 1 ? <Crown className="size-3.5 text-[#b9ff22]" /> : null}
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+        <div className="absolute -right-3 top-8 z-20 flex items-center gap-2.5 rounded-xl border border-[#b9ff22]/35 bg-[#0b1104]/95 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
+          <span className="grid size-10 place-items-center rounded-lg border border-[#b9ff22]/30 bg-[#b9ff22]/10 text-[#b9ff22]">
+            <Award className="size-5" />
+          </span>
+          <div>
+            <p className="text-[9px] font-black uppercase tracking-[0.14em] text-zinc-500">Reputation badge</p>
+            <p className="text-sm font-black text-white">Founding Analyst</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative space-y-3 lg:hidden">
+        <article className="rounded-xl border border-white/10 bg-[#0b0f12]/95 p-4">
           <div className="flex items-center justify-between">
+            <span className="flex items-center gap-2 text-xs font-black text-white">
+              <MessageCircle className="size-4 text-[#b9ff22]" />
+              Community chat
+            </span>
+            <span className="text-[9px] font-bold uppercase text-zinc-500">Live</span>
+          </div>
+          <p className="mt-3 rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2 text-xs text-zinc-300">
+            &ldquo;Locked KC -3 before kickoff. Let&apos;s go.&rdquo;
+          </p>
+        </article>
+        <div className="grid grid-cols-2 gap-3">
+          <article className="rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3">
             <span className="flex items-center gap-1.5 text-[11px] font-black text-white">
-              <span className="grid size-6 place-items-center rounded-md border border-[#b9ff22]/30 bg-[#b9ff22]/10 text-[#b9ff22]">
-                <TrendingUp className="size-3.5" />
-              </span>
+              <TrendingUp className="size-3.5 text-[#b9ff22]" />
               Predictions
             </span>
-            <Zap className="size-3 fill-[#b9ff22] text-[#b9ff22]" />
-          </div>
-          <div className="mt-3 space-y-1.5">
-            <div className="flex items-center gap-2">
-              <span className="w-7 text-[9px] font-bold text-zinc-400">KC</span>
-              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-                <span className="block h-full w-[68%] rounded-full bg-[#b9ff22]" />
-              </span>
-              <span className="text-[9px] font-black text-[#b9ff22]">68%</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-7 text-[9px] font-bold text-zinc-400">BUF</span>
-              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-                <span className="block h-full w-[32%] rounded-full bg-zinc-600" />
-              </span>
-              <span className="text-[9px] font-black text-zinc-400">32%</span>
-            </div>
-          </div>
-        </article>
-
-        <article className="absolute bottom-0 left-0 z-10 w-[47%] rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-          <div className="flex items-center gap-1.5 text-[11px] font-black text-white">
-            <span className="grid size-6 place-items-center rounded-md border border-[#b9ff22]/30 bg-[#b9ff22]/10 text-[#b9ff22]">
-              <Sparkles className="size-3.5" />
+            <p className="mt-2 text-[10px] font-bold text-zinc-300">KC 68% · BUF 32%</p>
+          </article>
+          <article className="rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3">
+            <span className="flex items-center gap-1.5 text-[11px] font-black text-white">
+              <Sparkles className="size-3.5 text-[#b9ff22]" />
+              Creator room
             </span>
-            Creators
-          </div>
-          <div className="mt-2.5 flex items-center gap-2">
-            <span className="grid size-7 shrink-0 place-items-center rounded-full border border-[#b9ff22]/40 bg-[radial-gradient(circle_at_35%_25%,#344b10,#101703_70%)] text-[9px] font-black text-[#b9ff22]">
-              CD
+            <p className="mt-2 text-[10px] font-bold text-zinc-300">Coach D · Film breakdown</p>
+          </article>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <article className="rounded-xl border border-[#b9ff22]/25 bg-[#b9ff22]/5 p-3">
+            <span className="flex items-center gap-1.5 text-[11px] font-black text-[#b9ff22]">
+              <Award className="size-3.5" />
+              Reputation
             </span>
-            <div className="min-w-0">
-              <p className="flex items-center gap-1 text-[10px] font-black text-white">
-                Coach D
-                <ShieldCheck className="size-2.5 text-[#b9ff22]" />
-              </p>
-              <p className="text-[8px] uppercase tracking-wide text-zinc-500">Premium feed</p>
-            </div>
-          </div>
-        </article>
-
-        <article className="absolute bottom-0 right-0 z-10 w-[47%] rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-          <div className="flex items-center gap-1.5 text-[11px] font-black text-white">
-            <span className="grid size-6 place-items-center rounded-md border border-[#b9ff22]/30 bg-[#b9ff22]/10 text-[#b9ff22]">
-              <Trophy className="size-3.5" />
+            <p className="mt-1 text-xs font-black text-white">Founding Analyst</p>
+          </article>
+          <article className="rounded-xl border border-white/10 bg-[#0b0f12]/95 p-3">
+            <span className="flex items-center gap-1.5 text-[11px] font-black text-white">
+              <BarChart3 className="size-3.5 text-[#b9ff22]" />
+              Leaderboard
             </span>
-            Competition
-          </div>
-          <div className="mt-2.5 flex items-center gap-2">
-            <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[#b9ff22] text-[9px] font-black text-black">
-              1
-            </span>
-            <span className="flex-1 truncate text-[10px] font-bold text-zinc-100">Season Leader</span>
-            <Crown className="size-3.5 text-[#b9ff22]" />
-          </div>
-        </article>
+            <p className="mt-1 text-xs font-bold text-zinc-300">#1 Season Leader</p>
+          </article>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -349,11 +439,11 @@ export default function Home() {
 
         <section
           id="home"
-          className="grid min-h-0 items-center gap-12 py-12 sm:py-14 lg:min-h-[700px] lg:grid-cols-[1.02fr_0.98fr] lg:py-0"
+          className="grid min-h-0 items-center gap-10 py-10 sm:gap-12 sm:py-12 lg:min-h-[700px] lg:grid-cols-[1fr_1fr] lg:gap-14 lg:py-0"
         >
           <div className="motion-enter max-w-2xl self-center lg:pt-8">
-            <HeroBadge icon={House}>Communities · Creators · Predictions · Competition</HeroBadge>
-            <h1 className="mt-2 text-5xl font-black uppercase leading-[0.96] tracking-normal text-white sm:text-7xl lg:text-[5.4rem] xl:text-[6rem]">
+            <HeroBadge icon={House}>Founding access open</HeroBadge>
+            <h1 className="mt-2 break-words text-5xl font-black uppercase leading-[0.96] tracking-normal text-white sm:text-7xl lg:text-[5.4rem] xl:text-[6rem]">
               One place for
               <br />
               the{" "}
@@ -364,13 +454,17 @@ export default function Home() {
               .
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-300 sm:mt-11 sm:text-xl">
-              Sideline puts{" "}
+              Game day is scattered — group chats, creator feeds, prediction apps,
+              and leaderboards that never connect. Sideline brings{" "}
               <strong className="font-bold text-white">communities</strong>,{" "}
               <strong className="font-bold text-white">creators</strong>,{" "}
               <strong className="font-bold text-white">predictions</strong>, and{" "}
-              <strong className="font-bold text-white">competition</strong> in one
-              app — so you stop splitting game day across Discord, Reddit, and
-              prediction apps.
+              <strong className="font-bold text-white">competition</strong> into
+              one home.
+            </p>
+            <p className="mt-4 max-w-xl text-base leading-7 text-zinc-400">
+              Not a sportsbook. Not another chat app. Join as a founding member
+              while we&apos;re building — and get in before launch.
             </p>
             <div className="mt-7 flex flex-wrap gap-2.5">
               {pillars.map(({ Icon, title }) => (
@@ -388,7 +482,7 @@ export default function Home() {
                 href="/waitlist"
                 className="motion-action group inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[#b9ff22] px-8 text-base font-black text-black shadow-[0_0_35px_rgba(185,255,34,0.28)] transition hover:-translate-y-0.5 hover:bg-[#d0ff53]"
               >
-                Join the Waitlist
+                Join as a Founding Member
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
               <Link
@@ -399,14 +493,47 @@ export default function Home() {
                 <ArrowRight className="size-5 text-[#b9ff22] transition-transform group-hover:translate-y-1 group-hover:rotate-90" strokeWidth={3} />
               </Link>
             </div>
+            <p className="mt-4 text-sm font-semibold text-zinc-500">
+              Reserve your spot before launch. No spam — just early access when
+              we&apos;re ready.
+            </p>
           </div>
 
-          <div className="motion-enter-late hidden self-center lg:block">
-            <HeroEcosystem />
+          <div className="motion-enter-late self-center lg:max-w-none">
+            <HeroProductComposite />
           </div>
         </section>
 
-        <section className="relative z-10 -mt-2 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.42)] lg:grid-cols-4">
+        <section id="how-it-works" className="scroll-mt-24 py-10 lg:py-12">
+          <SectionHeading center title="HOW SIDELINE WORKS" />
+          <div className="relative mt-6 grid gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-4">
+            <div className="pointer-events-none absolute left-[12%] right-[12%] top-9 hidden h-px bg-gradient-to-r from-[#b9ff22]/15 via-[#b9ff22]/60 to-[#b9ff22]/15 lg:block" />
+            {howItWorks.map(({ step, Icon, title, body }) => (
+              <article
+                key={step}
+                className="relative rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] lg:p-6"
+              >
+                <div className="relative z-10 mb-3 flex items-center justify-between lg:mb-5">
+                  <span className="grid size-10 place-items-center rounded-full border border-[#b9ff22]/40 bg-[#080b0c] text-[#b9ff22] shadow-[0_0_24px_rgba(185,255,34,0.14)] lg:size-[52px]">
+                    <Icon className="size-5 lg:size-6" />
+                  </span>
+                  <span className="text-xl font-black text-white/10 lg:text-3xl">{step}</span>
+                </div>
+                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#b9ff22]">
+                  Step {step}
+                </p>
+                <h3 className="mt-1 text-base font-black text-white lg:text-lg">{title}</h3>
+                <p className="mt-1.5 text-xs leading-5 text-zinc-400 lg:mt-2 lg:text-sm lg:leading-6">{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="py-4 lg:py-6">
+          <FoundingValueStrip />
+        </div>
+
+        <section className="relative z-10 -mt-1 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.42)] lg:grid-cols-4">
           {stats.map(([value, label]) => (
             <div key={label} className="bg-[#0b0f12]/90 p-5 backdrop-blur-xl sm:p-6">
               <strong className="block text-2xl font-black text-[#b9ff22] sm:text-3xl">{value}</strong>
@@ -415,7 +542,7 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="py-12 sm:py-16">
+        <section className="py-10 lg:py-12">
           <div className="relative overflow-hidden rounded-2xl border border-[#b9ff22]/25 bg-[radial-gradient(circle_at_12%_0%,rgba(185,255,34,0.12),rgba(11,15,18,0.96)_46%)] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.4)] sm:p-9">
             <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-[#b9ff22]/5 blur-3xl" />
             <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -425,19 +552,19 @@ export default function Home() {
                   Founding member program
                 </span>
                 <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">
-                  Why join before launch
+                  Be there before the crowd arrives
                 </h2>
                 <p className="mt-4 text-base leading-7 text-zinc-300">
-                  Reserve your username, lock in founding-member status, and help
-                  decide what ships first — perks that won&apos;t exist once
-                  Sideline opens to everyone.
+                  Founding members aren&apos;t waiting for launch — they&apos;re
+                  helping build it. Claim your identity, earn permanent status,
+                  and influence the communities that open first.
                 </p>
               </div>
               <Link
                 href="/waitlist"
                 className="motion-action group inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-lg bg-[#b9ff22] px-7 text-sm font-black text-black shadow-[0_0_32px_rgba(185,255,34,0.26)] transition hover:-translate-y-0.5 hover:bg-[#d0ff53]"
               >
-                Become a founding member
+                Join as a Founding Member
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
             </div>
@@ -458,35 +585,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="scroll-mt-24 py-12 sm:py-16">
-          <SectionHeading
-            center
-            eyebrow="How it works"
-            title="Get in the game in four steps"
-            copy="Sideline brings the whole sports experience into one home — so you can go from fan to competitor in minutes."
-          />
-          <div className="relative mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-4">
-            <div className="pointer-events-none absolute left-[12%] right-[12%] top-9 hidden h-px bg-gradient-to-r from-[#b9ff22]/15 via-[#b9ff22]/60 to-[#b9ff22]/15 lg:block" />
-            {howItWorks.map(({ step, Icon, title, body }) => (
-              <article
-                key={step}
-                className="relative rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:p-6"
-              >
-                <div className="relative z-10 mb-4 flex items-center justify-between sm:mb-5">
-                  <span className="grid size-11 place-items-center rounded-full border border-[#b9ff22]/40 bg-[#080b0c] text-[#b9ff22] shadow-[0_0_24px_rgba(185,255,34,0.14)] sm:size-[52px]">
-                    <Icon className="size-5 sm:size-6" />
-                  </span>
-                  <span className="text-2xl font-black text-white/10 sm:text-3xl">{step}</span>
-                </div>
-                <h3 className="text-base font-black text-white sm:text-lg">{title}</h3>
-                <p className="mt-1.5 text-xs leading-5 text-zinc-400 sm:mt-2 sm:text-sm sm:leading-6">{body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="py-9 sm:py-10">
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-7 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:p-10">
+        <section className="py-8 lg:py-10">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] lg:p-10">
             <div className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-[#b9ff22]/5 blur-3xl" />
             <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
               <div>
@@ -550,7 +650,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="communities" className="scroll-mt-24 py-9 sm:py-10">
+        <section id="communities" className="scroll-mt-24 py-8 lg:py-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
               eyebrow="Communities"
@@ -595,8 +695,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="grid gap-4 py-9 sm:py-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:p-8">
+        <section className="grid gap-4 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-10">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] lg:p-8">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#b9ff22]/60 to-transparent" />
             <div className="flex items-start justify-between gap-3">
               <SectionHeading
@@ -699,7 +799,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="creators" className="scroll-mt-24 py-9 sm:py-10">
+        <section id="creators" className="scroll-mt-24 py-8 lg:py-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
               eyebrow="Creators"
@@ -747,11 +847,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="py-8 lg:py-10">
+          <SectionHeading center title="BUILT IN PUBLIC" />
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4 lg:gap-4">
+            {builtInPublic.map(({ title, body }) => (
+              <article
+                key={title}
+                className="rounded-2xl border border-white/10 bg-[#0b0f12]/85 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] lg:p-6"
+              >
+                <h3 className="text-[11px] font-black uppercase tracking-[0.14em] text-[#b9ff22]">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-400">{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="pb-6 lg:pb-8">
+          <FoundingValueStrip />
+        </div>
+
         <StadiumCta
-          body="Reserve your username and join as a founding member — early access to communities, creators, picks, and leaderboards before launch."
-          buttonLabel="Join the Waitlist"
+          body="Founding members claim their username, earn permanent status, and walk in before the doors open. Help us build the home sports fans have always wanted."
+          buttonLabel="Join as a Founding Member"
           eyebrow="Before we launch"
-          title="Get in before everyone else."
+          title="This is where it starts."
         />
       </div>
     </main>

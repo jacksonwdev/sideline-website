@@ -8,7 +8,7 @@ export function HeroBadge({
   children: React.ReactNode;
 }>) {
   return (
-    <span className="motion-badge mb-6 inline-flex items-center gap-3 rounded-lg border border-[#b9ff22]/35 bg-[#b9ff22]/8 px-5 py-2.5 text-sm font-black uppercase text-[#b9ff22] shadow-[0_0_22px_rgba(185,255,34,.08)]">
+    <span className="motion-badge mb-6 inline-flex max-w-full flex-wrap items-center gap-2 rounded-lg border border-[#b9ff22]/35 bg-[#b9ff22]/8 px-3 py-2 text-[10px] font-black uppercase leading-snug text-[#b9ff22] shadow-[0_0_22px_rgba(185,255,34,.08)] sm:gap-3 sm:px-5 sm:py-2.5 sm:text-sm">
       <Icon className="size-5" strokeWidth={2.4} />
       {children}
     </span>

@@ -4,7 +4,7 @@ import { setTimeout as sleep } from "node:timers/promises";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const PORT = 9355;
-const BASE = "http://localhost:3253";
+const BASE = "http://localhost:3280";
 const OUT = "C:\\Users\\jacks\\sideline\\screenshots-v2";
 const PROFILE = process.env.TEMP + "\\sl-cdp-shoot";
 

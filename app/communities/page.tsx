@@ -3,15 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BarChart3,
+  ChevronDown,
   ChevronRight,
   Flame,
   LockKeyhole,
   MessageCircle,
   Radio,
+  Sparkles,
   Trophy,
   Users,
   Zap,
 } from "lucide-react";
+import { FoundingValueStrip } from "../components/FoundingValueStrip";
 import { HeroBadge } from "../components/HeroBadge";
 import { SiteHeader } from "../components/SiteHeader";
 import { StadiumCta } from "../components/StadiumCta";
@@ -107,7 +111,7 @@ function CommunityDashboard() {
                 </div>
               </div>
               <span className="hidden rounded-md border border-white/10 bg-white/[0.035] px-3 py-2 text-[10px] font-black text-zinc-300 sm:block">
-                Week 12
+                Preview
               </span>
             </div>
 
@@ -182,7 +186,7 @@ function CommunityDashboard() {
                   <div className="grid gap-3">
                     <div className="rounded-lg border border-white/10 bg-white/[0.025] p-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-black uppercase tracking-[0.16em] text-zinc-500">Community pick</span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.16em] text-zinc-500">Example pick</span>
                         <Trophy className="size-3.5 text-[#b9ff22]" />
                       </div>
                       <p className="mt-2 text-xs font-bold">Who closes it out?</p>
@@ -227,108 +231,71 @@ function CommunityDashboard() {
 
 function CommunityPreview() {
   const gameDayStages = [
-    {
-      time: "5:30 PM",
-      label: "Pregame",
-      title: "Drop your prediction",
-      copy: "Fans lock in picks and share the matchup takes they want on record.",
-      Icon: Trophy,
-      stat: "Picks open",
-    },
-    {
-      time: "8:20 PM",
-      label: "Kickoff",
-      title: "The room goes live",
-      copy: "Every drive, call, and momentum swing becomes a shared conversation.",
-      Icon: Radio,
-      stat: "Room live",
-    },
-    {
-      time: "10:47 PM",
-      label: "Final",
-      title: "Results update",
-      copy: "Correct picks, streaks, and community rankings settle automatically.",
-      Icon: Zap,
-      stat: "Results in",
-    },
-    {
-      time: "11:05 PM",
-      label: "Postgame",
-      title: "Film Room opens",
-      copy: "Premium members unpack the finish with creators and top contributors.",
-      Icon: LockKeyhole,
-      stat: "VIP access",
-    },
+    { label: "Pregame Discussion", Icon: MessageCircle },
+    { label: "Predictions Open", Icon: Trophy },
+    { label: "Predictions Lock", Icon: LockKeyhole },
+    { label: "Live Game Chat", Icon: Radio },
+    { label: "Results Posted", Icon: Zap },
+    { label: "Leaderboard Updated", Icon: BarChart3 },
+    { label: "Creator Breakdown Released", Icon: Sparkles },
   ];
 
   return (
     <div className="relative mx-auto max-w-6xl">
       <div className="pointer-events-none absolute inset-x-[8%] top-1/2 h-28 -translate-y-1/2 bg-[#b9ff22]/7 blur-[70px]" />
-      <div className="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(90deg,rgba(185,255,34,.035),transparent_22%,transparent_78%,rgba(185,255,34,.035))] py-8 sm:px-4">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-5 px-2">
-          <div>
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
-              Sunday / Community timeline
-            </span>
-            <h3 className="mt-2 text-2xl font-black text-white">One Game. Four Shared Moments.</h3>
-          </div>
-          <div className="flex items-center gap-3 text-xs text-zinc-500">
-            <span className="flex -space-x-2">
-              {["MG", "SK", "JP", "TD"].map((initials, index) => (
-                <span
-                  key={initials}
-                  className={`grid size-8 place-items-center rounded-full border-2 border-[#080b0c] text-[8px] font-black ${
-                    index === 0
-                      ? "bg-[#b9ff22] text-black"
-                      : "bg-[#171b1d] text-zinc-400"
-                  }`}
-                >
-                  {initials}
-                </span>
+      <div className="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(90deg,rgba(185,255,34,.035),transparent_22%,transparent_78%,rgba(185,255,34,.035))] py-6 sm:px-4 lg:py-8">
+        <div className="mb-6 px-2 lg:mb-8">
+          <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#b9ff22]">
+            Game day flow
+          </span>
+          <h3 className="mt-2 text-2xl font-black text-white">How a community moves through game day</h3>
+        </div>
+
+        <div className="hidden lg:block">
+          <div className="relative px-2">
+            <div className="pointer-events-none absolute left-[4%] right-[4%] top-[26px] h-px bg-gradient-to-r from-[#b9ff22]/15 via-[#b9ff22] to-[#b9ff22]/15" />
+            <div className="flex items-start justify-between gap-1">
+              {gameDayStages.map(({ label, Icon }, index) => (
+                <div key={label} className="flex min-w-0 flex-1 items-start">
+                  <div className="flex min-w-0 flex-1 flex-col items-center text-center">
+                    <div
+                      className={`relative z-10 grid size-12 place-items-center rounded-full border bg-[#080b0c] ${
+                        index === 3
+                          ? "border-[#b9ff22] text-[#b9ff22] shadow-[0_0_28px_rgba(185,255,34,.25)]"
+                          : "border-white/15 text-zinc-500"
+                      }`}
+                    >
+                      <Icon className="size-5" strokeWidth={2} />
+                    </div>
+                    <p className="mt-3 text-[10px] font-black leading-4 text-zinc-200">{label}</p>
+                  </div>
+                  {index < gameDayStages.length - 1 ? (
+                    <ArrowRight className="mx-0.5 mt-3 size-4 shrink-0 text-[#b9ff22]/50" aria-hidden="true" />
+                  ) : null}
+                </div>
               ))}
-            </span>
-            Fans following along
+            </div>
           </div>
         </div>
 
-        <div className="relative -mx-2 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
-          <div className="pointer-events-none absolute left-[8%] right-[8%] top-[37px] hidden h-px bg-gradient-to-r from-[#b9ff22]/15 via-[#b9ff22] to-[#b9ff22]/15 md:block" />
-          {gameDayStages.map(({ time, label, title, copy, Icon, stat }, index) => (
-            <div className="relative w-[78%] shrink-0 snap-center md:w-auto md:shrink" key={label}>
-              <div
-                className={`relative z-10 mx-5 grid size-[74px] place-items-center rounded-full border bg-[#080b0c] md:mx-auto ${
-                  index === 1
-                    ? "border-[#b9ff22] text-[#b9ff22] shadow-[0_0_28px_rgba(185,255,34,.25)]"
-                    : "border-white/15 text-zinc-500"
-                }`}
-              >
-                <Icon className="size-7" strokeWidth={2} />
-                {index === 1 && (
-                  <span className="absolute -right-1 -top-1 size-3 rounded-full border-2 border-[#080b0c] bg-[#b9ff22] shadow-[0_0_10px_#b9ff22]" />
-                )}
+        <div className="flex flex-col items-center gap-0 px-4 lg:hidden">
+          {gameDayStages.map(({ label, Icon }, index) => (
+            <div key={label} className="flex w-full max-w-sm flex-col items-center">
+              <div className="flex w-full items-center gap-3 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-3">
+                <span
+                  className={`grid size-10 shrink-0 place-items-center rounded-full border bg-[#080b0c] ${
+                    index === 3
+                      ? "border-[#b9ff22] text-[#b9ff22]"
+                      : "border-white/15 text-zinc-500"
+                  }`}
+                >
+                  <Icon className="size-4" />
+                </span>
+                <p className="text-sm font-black text-white">{label}</p>
               </div>
-              <div
-                className={`mt-[-37px] min-h-[260px] rounded-lg border px-5 pb-5 pt-14 ${
-                  index === 1
-                    ? "border-[#b9ff22]/45 bg-[linear-gradient(160deg,rgba(185,255,34,.11),rgba(255,255,255,.025)_58%)] shadow-[0_20px_55px_rgba(0,0,0,.3)]"
-                    : "border-white/10 bg-white/[0.025]"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-black uppercase tracking-[0.16em] text-zinc-600">{time}</span>
-                  <span className={index === 1 ? "text-[9px] font-black uppercase text-[#b9ff22]" : "text-[9px] font-black uppercase text-zinc-600"}>
-                    {label}
-                  </span>
-                </div>
-                <h4 className="mt-5 text-lg font-black text-white">{title}</h4>
-                <p className="mt-3 text-sm leading-6 text-zinc-400">{copy}</p>
-                <div className="mt-6 border-t border-white/10 pt-4">
-                  <span className="text-[9px] font-black uppercase tracking-[0.14em] text-zinc-600">Community signal</span>
-                  <p className={`mt-1 text-lg font-black ${index === 1 ? "text-[#b9ff22]" : "text-zinc-200"}`}>
-                    {stat}
-                  </p>
-                </div>
-              </div>
+              {index < gameDayStages.length - 1 ? (
+                <ChevronDown className="my-1 size-5 text-[#b9ff22]/60" aria-hidden="true" />
+              ) : null}
             </div>
           ))}
         </div>
@@ -347,7 +314,7 @@ function CommunityPreview() {
             href="/waitlist"
             className="motion-action inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-[#b9ff22] px-8 text-sm font-black text-black"
           >
-            Join the Timeline
+            Join as a Founding Member
             <ArrowRight className="size-5" strokeWidth={3} />
           </Link>
         </div>
@@ -380,16 +347,16 @@ export default function CommunitiesPage() {
               Every fan belongs somewhere.
             </p>
             <p className="mt-4 max-w-xl text-base leading-7 text-zinc-300">
-              Team communities, creator feeds, skill-based predictions, and
-              leaderboards — built into one sports platform, not a Discord server
-              or sportsbook.
+              Your team. Your people. Your reactions on every drive, every
+              bucket, every round. Sideline communities are game-day rooms
+              built for belonging — not betting, not another endless group chat.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/waitlist"
                 className="motion-action group inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[#b9ff22] px-8 text-sm font-black text-black transition hover:-translate-y-0.5 hover:bg-[#d0ff53]"
               >
-                Join a Community
+                Join as a Founding Member
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
               </Link>
               <Link
@@ -430,10 +397,9 @@ export default function CommunitiesPage() {
               More Than A Group Chat
             </h2>
             <p className="mt-4 text-base leading-7 text-zinc-400">
-              A Sideline Community is a dedicated space where fans can gather
-              around shared interests, creators, teams, leagues, and sports
-              topics. Communities combine discussion, competition, predictions,
-              and exclusive content into one experience.
+              A home for your people — live reactions, shared picks, creator
+              rooms, and the familiar faces you want beside you on game day.
+              Built around communities, not gambling.
             </p>
           </div>
           <CommunityPreview />
@@ -540,56 +506,13 @@ export default function CommunitiesPage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 min-h-0 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-12 lg:min-h-[430px]">
-          <div
-            className="pointer-events-none absolute bottom-0 right-[12vw] top-0 hidden w-[64vw] max-w-[1240px] lg:block"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-              maskImage:
-                "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-            }}
-          >
-            <div
-              className="relative h-full w-full"
-              style={{
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, black 20%, black 72%, transparent 100%)",
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, black 20%, black 72%, transparent 100%)",
-              }}
-            >
-              <Image
-                src="/assets/communities-network-overlay-v4.png"
-                alt="Neon network of connected sports fans in a digital stadium"
-                fill
-                sizes="(min-width: 1024px) 66vw, 100vw"
-                className="object-contain object-right opacity-92 mix-blend-screen"
-              />
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-y-[-12%] left-0 z-[1] w-[42%] bg-[linear-gradient(90deg,rgba(2,3,5,0.86)_0%,rgba(2,3,5,0.66)_48%,transparent_100%)] blur-2xl" />
-          <div className="relative z-10 mx-auto grid max-w-[1480px] items-center gap-6 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-14">
-            <div>
-              <h2 className="text-4xl font-black leading-tight text-white">
-                The Future of
-                <br />
-                <span className="text-[#b9ff22]">Sports Communities</span>
-              </h2>
-              <p className="mt-4 max-w-lg text-sm leading-6 text-zinc-400">
-                Today, Sideline Communities are built around conversation,
-                predictions, and competition. Tomorrow, they will become the
-                foundation for deeper fan engagement, creator experiences, and new
-                ways for communities to interact around the games they love.
-              </p>
-            </div>
-            <div className="hidden min-h-[280px] lg:block" aria-hidden="true" />
-          </div>
-        </section>
+        <div className="py-6 lg:py-8">
+          <FoundingValueStrip />
+        </div>
 
         <StadiumCta
           body="Join the waitlist and be among the first fans to discover communities built around the teams, creators, and sports you care about."
-          buttonLabel="Join a Community"
+          buttonLabel="Join as a Founding Member"
           eyebrow="Find your people"
           title="Ready to find your community?"
         />

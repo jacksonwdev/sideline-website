@@ -61,10 +61,9 @@ export function SiteHeader({
         <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3 lg:border-l lg:border-white/10 lg:pl-8">
           <Link
             href="/waitlist"
-            className="motion-action inline-flex min-w-[54px] items-center justify-center whitespace-nowrap rounded-md bg-[#b9ff22] px-3 py-3 text-xs font-black text-black shadow-[0_0_30px_rgba(185,255,34,0.24)] transition hover:-translate-y-0.5 hover:bg-[#d0ff53] hover:shadow-[0_0_38px_rgba(185,255,34,0.35)] sm:min-w-[176px] sm:rounded-lg sm:px-7 sm:text-sm lg:min-w-[198px]"
+            className="motion-action inline-flex max-w-[11rem] items-center justify-center whitespace-normal rounded-md bg-[#b9ff22] px-2.5 py-2.5 text-center text-[10px] font-black leading-tight text-black shadow-[0_0_30px_rgba(185,255,34,0.24)] transition hover:-translate-y-0.5 hover:bg-[#d0ff53] hover:shadow-[0_0_38px_rgba(185,255,34,0.35)] sm:max-w-none sm:whitespace-nowrap sm:rounded-lg sm:px-7 sm:py-3 sm:text-sm lg:min-w-[198px]"
           >
-            <span className="sm:hidden">Join</span>
-            <span className="hidden sm:inline">Join the Waitlist</span>
+            Join as a Founding Member
           </Link>
 
           <button
